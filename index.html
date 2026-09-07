@@ -57,49 +57,24 @@
       </div>
 
       <div class="kpi-item">
-        <div class="kpi-icon"><i class="fas fa-globe"></i></div>
-        <div>
-          <div class="kpi-num" id="customDomainsCount">50</div>
-          <div class="kpi-label">Custom Domains</div>
-        </div>
-      </div>
-
-      <div class="kpi-item">
-        <div class="kpi-icon"><i class="fas fa-code-branch"></i></div>
-        <div>
-          <div class="kpi-num" id="subdomainsCount">22</div>
-          <div class="kpi-label">Staging Subdomains</div>
-        </div>
-      </div>
-
-      <div class="kpi-item">
         <div class="kpi-icon"><i class="fas fa-tags"></i></div>
         <div>
           <div class="kpi-num" id="categoriesCount">14</div>
-          <div class="kpi-label">Industries</div>
-        </div>
-      </div>
-
-      <div class="kpi-item">
-        <div class="kpi-icon"><i class="fas fa-check-circle"></i></div>
-        <div>
-          <div class="kpi-num" id="activeSitesCount">58</div>
-          <div class="kpi-label">Live Websites</div>
+          <div class="kpi-label">Business Categories</div>
         </div>
       </div>
     </section>
 
-    <!-- Control Hub: Search & Quick Tab Filters -->
-    <section class="control-hub" id="controlHub" aria-label="Search and Filter Controls">
-      <!-- Search and Domain Tabs in one row -->
-      <div class="search-and-tabs-row">
+    <!-- Control Hub: Search & Sort Controls -->
+    <section class="control-hub" id="controlHub" aria-label="Search and Sort Controls">
+      <div class="search-and-sort-row">
         <div class="search-box-wrap">
           <i class="fas fa-search search-icon" aria-hidden="true"></i>
           <input 
             type="text" 
             id="searchInput" 
             class="main-search-input" 
-            placeholder="Search by client name, domain (e.g. .ae, .com), category, or keyword..." 
+            placeholder="Search by client name, domain, or category..." 
             autocomplete="off"
             spellcheck="false"
             aria-label="Search clients"
@@ -110,57 +85,13 @@
           </button>
         </div>
 
-        <!-- Segmented Domain Tabs: 1-Click filter -->
-        <div class="domain-tabs" id="domainTabs" role="tablist" aria-label="Filter by domain type">
-          <button type="button" class="domain-tab-btn active" data-type="all">
-            <span>All Domains</span>
-            <span class="tab-badge" id="tabBadgeAll">72</span>
-          </button>
-          <button type="button" class="domain-tab-btn" data-type="custom">
-            <i class="fas fa-globe" style="font-size: 0.75rem;"></i>
-            <span>Custom (.com/.ae)</span>
-            <span class="tab-badge" id="tabBadgeCustom">50</span>
-          </button>
-          <button type="button" class="domain-tab-btn" data-type="subdomain">
-            <i class="fas fa-code-branch" style="font-size: 0.75rem;"></i>
-            <span>Staging Subdomains</span>
-            <span class="tab-badge" id="tabBadgeSub">22</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Secondary Controls: Platform, Status & Sorting -->
-      <div class="secondary-controls-row">
-        <div class="quick-selects">
-          <div class="control-item">
-            <label for="filterPlatform" class="control-label">Platform:</label>
-            <select id="filterPlatform" class="control-select">
-              <option value="all">All Platforms</option>
-              <option value="WordPress">WordPress</option>
-              <option value="HTML / Web App">Custom HTML / App</option>
-            </select>
-          </div>
-
-          <div class="control-item">
-            <label for="filterStatus" class="control-label">Status:</label>
-            <select id="filterStatus" class="control-select">
-              <option value="all">All Statuses</option>
-              <option value="Active">Active / Live</option>
-              <option value="Pending Setup">Pending Setup</option>
-              <option value="Domain Pending Purchase">Purchase Pending</option>
-              <option value="Needs Attention">Needs Attention</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="control-item">
+        <div class="control-item sort-control-item">
           <label for="sortBySelect" class="control-label">Sort By:</label>
           <select id="sortBySelect" class="control-select">
             <option value="name-asc">Client Name (A &rarr; Z)</option>
             <option value="name-desc">Client Name (Z &rarr; A)</option>
             <option value="category-asc">Category (A &rarr; Z)</option>
             <option value="domain-asc">Domain (A &rarr; Z)</option>
-            <option value="status-asc">Status</option>
           </select>
         </div>
       </div>
@@ -200,13 +131,10 @@
       <table class="clients-table" aria-label="Clients directory table">
         <thead>
           <tr>
-            <th style="width: 48px;">#</th>
+            <th style="width: 50px;">#</th>
             <th>Client Name</th>
             <th>Website Domain</th>
             <th>Business Category</th>
-            <th>Domain Type</th>
-            <th>Platform</th>
-            <th>Status</th>
             <th style="text-align: right; width: 140px;">Action</th>
           </tr>
         </thead>

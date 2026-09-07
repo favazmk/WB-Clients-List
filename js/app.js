@@ -1,5 +1,6 @@
 /**
  * Sales Team Client Directory - White Theme & Default Listing Style
+ * Streamlined: Client Name, Domain, and Business Category
  */
 
 (function () {
@@ -8,20 +9,20 @@
   // Category Icon Mapping for Instant Visual Recognition
   const CATEGORY_ICONS = {
     'All': 'fas fa-layer-group',
-    'E-Commerce & Retail': 'fas fa-shopping-cart',
-    'Food & Beverage / Dining': 'fas fa-utensils',
-    'Fashion, Apparel & Textiles': 'fas fa-tshirt',
     'Corporate & Business Services': 'fas fa-briefcase',
-    'Real Estate & Interior Design': 'fas fa-building',
-    'Industrial, Trading & Engineering': 'fas fa-industry',
-    'Health, Fitness & Wellness': 'fas fa-heartbeat',
     'Creative Agency & Media': 'fas fa-paint-brush',
-    'Portfolios & Personal Brands': 'fas fa-user-tie',
-    'Travel, Tourism & Hospitality': 'fas fa-plane-departure',
-    'Luxury, Jewelry & Perfumes': 'fas fa-gem',
-    'Technology & IT Solutions': 'fas fa-laptop-code',
+    'E-Commerce & Retail': 'fas fa-shopping-cart',
     'Education & Community': 'fas fa-graduation-cap',
+    'Fashion, Apparel & Textiles': 'fas fa-tshirt',
+    'Food & Beverage / Dining': 'fas fa-utensils',
     'Gifts & Floral': 'fas fa-spa',
+    'Health, Fitness & Wellness': 'fas fa-heartbeat',
+    'Industrial, Trading & Engineering': 'fas fa-industry',
+    'Luxury, Jewelry & Perfumes': 'fas fa-gem',
+    'Portfolios & Personal Brands': 'fas fa-user-tie',
+    'Real Estate & Interior Design': 'fas fa-building',
+    'Technology & IT Solutions': 'fas fa-laptop-code',
+    'Travel, Tourism & Hospitality': 'fas fa-plane-departure',
     'Entertainment & Media': 'fas fa-film'
   };
 
@@ -31,9 +32,6 @@
     filteredClients: [],
     searchQuery: '',
     selectedCategory: 'All',
-    selectedDomainType: 'all',
-    selectedPlatform: 'all',
-    selectedStatus: 'all',
     sortBy: 'name-asc',
     viewMode: 'table' // Always show listing style first when user lands
   };
@@ -42,22 +40,11 @@
   const elements = {
     // KPI Counters
     totalClientsCount: document.getElementById('totalClientsCount'),
-    customDomainsCount: document.getElementById('customDomainsCount'),
-    subdomainsCount: document.getElementById('subdomainsCount'),
     categoriesCount: document.getElementById('categoriesCount'),
-    activeSitesCount: document.getElementById('activeSitesCount'),
-
-    // Domain Tab Badges
-    tabBadgeAll: document.getElementById('tabBadgeAll'),
-    tabBadgeCustom: document.getElementById('tabBadgeCustom'),
-    tabBadgeSub: document.getElementById('tabBadgeSub'),
-    domainTabs: document.getElementById('domainTabs'),
 
     // Search & Filters
     searchInput: document.getElementById('searchInput'),
     clearSearchBtn: document.getElementById('clearSearchBtn'),
-    filterPlatform: document.getElementById('filterPlatform'),
-    filterStatus: document.getElementById('filterStatus'),
     sortBySelect: document.getElementById('sortBySelect'),
     categoryChipsContainer: document.getElementById('categoryChipsContainer'),
 
@@ -91,20 +78,10 @@
   // Update Overview Numbers
   function updateKPIStats() {
     const total = state.clients.length;
-    const custom = state.clients.filter(c => c.type === 'custom').length;
-    const sub = state.clients.filter(c => c.type === 'subdomain').length;
     const categories = new Set(state.clients.map(c => c.category)).size;
-    const active = state.clients.filter(c => c.status === 'Active').length;
 
     if (elements.totalClientsCount) elements.totalClientsCount.textContent = total;
-    if (elements.customDomainsCount) elements.customDomainsCount.textContent = custom;
-    if (elements.subdomainsCount) elements.subdomainsCount.textContent = sub;
     if (elements.categoriesCount) elements.categoriesCount.textContent = categories;
-    if (elements.activeSitesCount) elements.activeSitesCount.textContent = active;
-
-    if (elements.tabBadgeAll) elements.tabBadgeAll.textContent = total;
-    if (elements.tabBadgeCustom) elements.tabBadgeCustom.textContent = custom;
-    if (elements.tabBadgeSub) elements.tabBadgeSub.textContent = sub;
   }
 
   // Render Visual Category Chips with Icons
@@ -153,29 +130,13 @@
         return false;
       }
 
-      // Domain type filter (All, Custom, Subdomain)
-      if (state.selectedDomainType !== 'all' && client.type !== state.selectedDomainType) {
-        return false;
-      }
-
-      // Platform filter
-      if (state.selectedPlatform !== 'all' && client.platform !== state.selectedPlatform) {
-        return false;
-      }
-
-      // Status filter
-      if (state.selectedStatus !== 'all' && client.status !== state.selectedStatus) {
-        return false;
-      }
-
       // Search Query
       if (q) {
         const matchName = client.name.toLowerCase().includes(q);
         const matchDomain = client.domain.toLowerCase().includes(q);
         const matchCategory = client.category.toLowerCase().includes(q);
-        const matchPlatform = client.platform.toLowerCase().includes(q);
         const matchTags = client.tags && client.tags.some(t => t.toLowerCase().includes(q));
-        if (!matchName && !matchDomain && !matchCategory && !matchPlatform && !matchTags) {
+        if (!matchName && !matchDomain && !matchCategory && !matchTags) {
           return false;
         }
       }
@@ -200,8 +161,6 @@
           return a.category.localeCompare(b.category) || a.name.localeCompare(b.name);
         case 'domain-asc':
           return a.domain.localeCompare(b.domain);
-        case 'status-asc':
-          return a.status.localeCompare(b.status) || a.name.localeCompare(b.name);
         default:
           return 0;
       }
@@ -237,42 +196,24 @@
     if (!elements.tableBody) return;
 
     elements.tableBody.innerHTML = state.filteredClients.map((client, index) => {
-      const statusClass = getStatusClass(client.status);
-      const isCustom = client.type === 'custom';
-      const typeLabel = isCustom ? 'Custom' : 'Subdomain';
-      const typeClass = isCustom ? 'custom' : 'subdomain';
-      const platformIcon = client.platform === 'WordPress' ? 'fab fa-wordpress' : 'fas fa-code';
       const catIcon = CATEGORY_ICONS[client.category] || 'fas fa-tag';
 
       return `
         <tr id="row-${client.id}">
-          <td style="color: var(--text-muted); font-size: 0.78rem; font-weight: 600;">${index + 1}</td>
+          <td style="color: var(--text-muted); font-size: 0.8rem; font-weight: 600;">${index + 1}</td>
           <td>
             <div class="table-client-title">${escapeHtml(client.name)}</div>
           </td>
           <td>
             <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="table-domain" title="Open website in new tab">
               <span>${escapeHtml(client.domain)}</span>
-              <i class="fas fa-external-link-alt" style="font-size: 0.68rem; margin-left: 3px; opacity: 0.7;"></i>
+              <i class="fas fa-external-link-alt" style="font-size: 0.68rem; margin-left: 4px; opacity: 0.7;"></i>
             </a>
           </td>
           <td>
-            <span class="card-category" style="font-size: 0.72rem; padding: 3px 8px;">
-              <i class="${catIcon}" style="font-size: 0.7rem; color: var(--brand-primary);"></i>
+            <span class="card-category" style="font-size: 0.74rem; padding: 4px 9px;">
+              <i class="${catIcon}" style="font-size: 0.72rem; color: var(--brand-primary);"></i>
               ${escapeHtml(client.category)}
-            </span>
-          </td>
-          <td>
-            <span class="card-type-tag ${typeClass}">${typeLabel}</span>
-          </td>
-          <td>
-            <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-secondary); font-weight: 500;">
-              <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
-            </span>
-          </td>
-          <td>
-            <span class="status-badge ${statusClass}">
-              <span class="status-dot"></span> ${escapeHtml(client.status)}
             </span>
           </td>
           <td style="text-align: right;">
@@ -297,22 +238,14 @@
     if (!elements.gridContainer) return;
 
     elements.gridContainer.innerHTML = state.filteredClients.map(client => {
-      const statusClass = getStatusClass(client.status);
-      const isCustom = client.type === 'custom';
-      const typeLabel = isCustom ? 'Custom Domain' : 'Staging Site';
-      const typeClass = isCustom ? 'custom' : 'subdomain';
-      const platformIcon = client.platform === 'WordPress' ? 'fab fa-wordpress' : 'fas fa-code';
       const catIcon = CATEGORY_ICONS[client.category] || 'fas fa-tag';
 
       return `
         <article class="client-card" id="${client.id}">
           <div class="card-header">
             <span class="card-category">
-              <i class="${catIcon}" style="font-size: 0.72rem; color: var(--brand-primary);"></i>
+              <i class="${catIcon}" style="font-size: 0.74rem; color: var(--brand-primary);"></i>
               ${escapeHtml(client.category)}
-            </span>
-            <span class="status-badge ${statusClass}">
-              <span class="status-dot"></span> ${escapeHtml(client.status)}
             </span>
           </div>
 
@@ -327,15 +260,6 @@
             <button type="button" class="copy-icon-btn" data-copy="${escapeHtml(client.domain)}" title="Copy domain">
               <i class="far fa-copy"></i>
             </button>
-          </div>
-
-          <div class="card-meta">
-            <span class="platform-pill">
-              <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
-            </span>
-            <span class="card-type-tag ${typeClass}">
-              ${typeLabel}
-            </span>
           </div>
 
           <!-- Primary Visit Button -->
@@ -362,8 +286,9 @@
     });
   }
 
+  // Clipboard Helper
   function copyToClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
+    if (navigator.clipboard && window.isSecureContext) {
       navigator.clipboard.writeText(text).then(() => {
         showToast(`Copied "${text}" to clipboard!`);
       }).catch(() => {
@@ -420,11 +345,7 @@
       elements.resultsCount.innerHTML = `Showing <span class="results-count-highlight">${count}</span> of ${total} clients`;
     }
 
-    const hasActiveFilters = state.searchQuery ||
-      state.selectedCategory !== 'All' ||
-      state.selectedDomainType !== 'all' ||
-      state.selectedPlatform !== 'all' ||
-      state.selectedStatus !== 'all';
+    const hasActiveFilters = state.searchQuery || state.selectedCategory !== 'All';
 
     if (elements.resetAllBtn) {
       elements.resetAllBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
@@ -444,16 +365,13 @@
   // Export to CSV
   function exportToCSV() {
     const list = state.filteredClients.length > 0 ? state.filteredClients : state.clients;
-    const headers = ['ID', 'Client Name', 'Website Domain', 'Direct URL', 'Category', 'Domain Type', 'Platform', 'Status'];
-    const rows = list.map(c => [
-      c.id,
+    const headers = ['#', 'Client Name', 'Website Domain', 'Direct URL', 'Business Category'];
+    const rows = list.map((c, i) => [
+      i + 1,
       `"${c.name.replace(/"/g, '""')}"`,
       `"${c.domain}"`,
       `"${c.url}"`,
-      `"${c.category.replace(/"/g, '""')}"`,
-      `"${c.type}"`,
-      `"${c.platform}"`,
-      `"${c.status}"`
+      `"${c.category.replace(/"/g, '""')}"`
     ]);
 
     const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
@@ -502,35 +420,6 @@
       }
     });
 
-    // Domain Segmented Tabs (All / Custom / Subdomain)
-    if (elements.domainTabs) {
-      elements.domainTabs.querySelectorAll('.domain-tab-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const type = btn.getAttribute('data-type');
-          state.selectedDomainType = type;
-          elements.domainTabs.querySelectorAll('.domain-tab-btn').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          applyFilters();
-        });
-      });
-    }
-
-    // Platform Filter
-    if (elements.filterPlatform) {
-      elements.filterPlatform.addEventListener('change', (e) => {
-        state.selectedPlatform = e.target.value;
-        applyFilters();
-      });
-    }
-
-    // Status Filter
-    if (elements.filterStatus) {
-      elements.filterStatus.addEventListener('change', (e) => {
-        state.selectedStatus = e.target.value;
-        applyFilters();
-      });
-    }
-
     // Sort Dropdown
     if (elements.sortBySelect) {
       elements.sortBySelect.addEventListener('change', (e) => {
@@ -565,22 +454,11 @@
   function resetAllFilters() {
     state.searchQuery = '';
     state.selectedCategory = 'All';
-    state.selectedDomainType = 'all';
-    state.selectedPlatform = 'all';
-    state.selectedStatus = 'all';
     state.sortBy = 'name-asc';
 
     if (elements.searchInput) elements.searchInput.value = '';
     if (elements.clearSearchBtn) elements.clearSearchBtn.style.display = 'none';
-    if (elements.filterPlatform) elements.filterPlatform.value = 'all';
-    if (elements.filterStatus) elements.filterStatus.value = 'all';
     if (elements.sortBySelect) elements.sortBySelect.value = 'name-asc';
-
-    if (elements.domainTabs) {
-      elements.domainTabs.querySelectorAll('.domain-tab-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-type') === 'all');
-      });
-    }
 
     if (elements.categoryChipsContainer) {
       elements.categoryChipsContainer.querySelectorAll('.chip-btn').forEach(btn => {
@@ -590,24 +468,6 @@
 
     applyFilters();
     showToast('Filters reset to show all clients');
-  }
-
-  // Helper Functions
-  function getStatusClass(status) {
-    switch (status) {
-      case 'Active':
-        return 'status-active';
-      case 'Pending Setup':
-        return 'status-pending';
-      case 'Domain Pending Purchase':
-        return 'status-purchase';
-      case 'Expiring Soon':
-      case 'Needs Attention':
-      case 'Issue / Offline':
-        return 'status-issue';
-      default:
-        return 'status-active';
-    }
   }
 
   function escapeHtml(str) {
