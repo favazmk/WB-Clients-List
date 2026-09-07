@@ -17,14 +17,14 @@ const CLIENTS_DATA = [
   },
   {
     id: "client-02",
-    name: "Pandur World",
+    name: "Pandur World Cookies",
     domain: "pandurworld.com",
     url: "https://pandurworld.com",
     type: "custom",
-    category: "Entertainment & Media",
+    category: "Food & Beverage / Dining",
     platform: "HTML / Web App",
     status: "Pending Setup",
-    tags: ["Entertainment", "Media", "Web App", "Custom Domain"]
+    tags: ["Cookies", "Bakery", "Food & Beverage", "Snacks", "Custom Domain"]
   },
   {
     id: "client-03",
