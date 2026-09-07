@@ -151,13 +151,13 @@
     "domain": "bcgmllc.com",
     "url": "https://bcgmllc.com",
     "type": "custom",
-    "category": "Corporate & Business Services",
+    "category": "Industrial, Trading & Engineering",
     "platform": "HTML / Web App",
     "status": "Active",
     "tags": [
-      "Consulting",
-      "Management",
-      "Corporate",
+      "Industrial",
+      "Engineering",
+      "Trading",
       "Custom Domain"
     ]
   },
@@ -800,13 +800,14 @@
     "domain": "miyayurway.com",
     "url": "https://miyayurway.com",
     "type": "custom",
-    "category": "Fashion, Apparel & Textiles",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Domain Pending Purchase",
     "tags": [
+      "Wellness",
+      "Health",
+      "Ayurway",
       "Lifestyle",
-      "Fashion",
-      "Beauty",
       "Custom Domain"
     ]
   },
@@ -849,13 +850,14 @@
     "domain": "thefinobel.com",
     "url": "https://thefinobel.com",
     "type": "custom",
-    "category": "Corporate & Business Services",
+    "category": "Fashion, Apparel & Textiles",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Financial Advisory",
-      "Consulting",
-      "Investments",
+      "Fashion",
+      "Apparel",
+      "Textiles",
+      "Finobel",
       "Custom Domain"
     ]
   },
@@ -881,13 +883,13 @@
     "domain": "argserviceuae.com",
     "url": "https://argserviceuae.com",
     "type": "custom",
-    "category": "Corporate & Business Services",
+    "category": "Industrial, Trading & Engineering",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Facility Management",
+      "Engineering",
       "Maintenance",
-      "Services",
+      "Industrial Services",
       "UAE",
       "Custom Domain"
     ]
@@ -898,13 +900,13 @@
     "domain": "nearme888.com",
     "url": "https://nearme888.com",
     "type": "custom",
-    "category": "E-Commerce & Retail",
+    "category": "Corporate & Business Services",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Directory",
-      "Hyperlocal",
-      "Services & Retail",
+      "Business Directory",
+      "Services",
+      "Corporate",
       "Custom Domain"
     ]
   },
@@ -946,13 +948,14 @@
     "domain": "sadisorg.com",
     "url": "https://sadisorg.com",
     "type": "custom",
-    "category": "Education & Community",
+    "category": "Health, Fitness & Wellness",
     "platform": "HTML / Web App",
     "status": "Domain Pending Purchase",
     "tags": [
-      "Non-Profit",
-      "NGO",
+      "Healthcare",
+      "Wellness",
       "Community",
+      "Organization",
       "Custom Domain"
     ]
   },
@@ -962,13 +965,14 @@
     "domain": "britlyliving.co.uk",
     "url": "https://britlyliving.co.uk",
     "type": "custom",
-    "category": "Real Estate & Interior Design",
+    "category": "E-Commerce & Retail",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Modern Living",
+      "Home Retail",
       "Furniture",
-      "Home Decor",
+      "E-Commerce",
+      "Decor",
       "UK",
       "Custom Domain"
     ]
@@ -1107,13 +1111,14 @@
     "domain": "scottkids.com",
     "url": "https://scottkids.com",
     "type": "custom",
-    "category": "Fashion, Apparel & Textiles",
+    "category": "Education & Community",
     "platform": "WordPress",
     "status": "Needs Attention",
     "tags": [
-      "Children Fashion",
-      "Kids Wear",
-      "Toys",
+      "Kids",
+      "Education",
+      "Learning",
+      "Community",
       "Custom Domain"
     ]
   },

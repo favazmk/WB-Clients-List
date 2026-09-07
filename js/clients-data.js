@@ -1,803 +1,1181 @@
 /**
  * Clients Database for Sales Team Directory
  * Extracted and curated from Hostinger hPanel Client Roster
+ * Verified & Updated via Project Manager Review
  */
 
 const CLIENTS_DATA = [
   {
-    id: "client-01",
-    name: "Riju's Portfolio",
-    domain: "rijuss.hashirnisam.com",
-    url: "https://rijuss.hashirnisam.com",
-    type: "subdomain",
-    category: "Portfolios & Personal Brands",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Portfolio", "Personal", "WordPress", "Staging"]
-  },
-  {
-    id: "client-02",
-    name: "Pandur World Cookies",
-    domain: "pandurworld.com",
-    url: "https://pandurworld.com",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "HTML / Web App",
-    status: "Pending Setup",
-    tags: ["Cookies", "Bakery", "Food & Beverage", "Snacks", "Custom Domain"]
-  },
-  {
-    id: "client-03",
-    name: "Safeway Services",
-    domain: "safeway.hashirnisam.com",
-    url: "https://safeway.hashirnisam.com",
-    type: "subdomain",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Services", "Corporate", "WordPress", "Staging"]
-  },
-  {
-    id: "client-04",
-    name: "Shaista Fathima",
-    domain: "shaistafathima.com",
-    url: "https://shaistafathima.com",
-    type: "custom",
-    category: "Fashion, Apparel & Textiles",
-    platform: "HTML / Web App",
-    status: "Active",
-    tags: ["Fashion", "Designer", "Portfolio", "Custom Domain"]
-  },
-  {
-    id: "client-05",
-    name: "Rashid Ali (Dev 2)",
-    domain: "rashidali2.hashirnisam.com",
-    url: "https://rashidali2.hashirnisam.com",
-    type: "subdomain",
-    category: "Portfolios & Personal Brands",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Personal", "Consulting", "WordPress", "Staging"]
-  },
-  {
-    id: "client-06",
-    name: "Rashid Ali",
-    domain: "rashidali.hashirnisam.com",
-    url: "https://rashidali.hashirnisam.com",
-    type: "subdomain",
-    category: "Portfolios & Personal Brands",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Portfolio", "Business", "WordPress", "Staging"]
-  },
-  {
-    id: "client-07",
-    name: "Flower Hub (Staging)",
-    domain: "flowerhub.hashirnisam.com",
-    url: "https://flowerhub.hashirnisam.com",
-    type: "subdomain",
-    category: "Gifts & Floral",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Flowers", "Gifts", "E-Commerce", "Staging"]
-  },
-  {
-    id: "client-08",
-    name: "Brod (Staging)",
-    domain: "brod.hashirnisam.com",
-    url: "https://brod.hashirnisam.com",
-    type: "subdomain",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Fashion", "Clothing", "Retail", "Staging"]
-  },
-  {
-    id: "client-09",
-    name: "Sam Fitness Official",
-    domain: "samfitnessofficial.ae",
-    url: "https://samfitnessofficial.ae",
-    type: "custom",
-    category: "Health, Fitness & Wellness",
-    platform: "HTML / Web App",
-    status: "Active",
-    tags: ["Fitness", "Gym", "Trainer", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-10",
-    name: "BCGM LLC",
-    domain: "bcgmllc.com",
-    url: "https://bcgmllc.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "HTML / Web App",
-    status: "Active",
-    tags: ["Consulting", "Management", "Corporate", "Custom Domain"]
-  },
-  {
-    id: "client-11",
-    name: "Binsbay",
-    domain: "binsbay.com",
-    url: "https://binsbay.com",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["E-Commerce", "Shopping", "Retail", "Custom Domain"]
-  },
-  {
-    id: "client-12",
-    name: "Binsbay (New Staging)",
-    domain: "newbinsbay.hashirnisam.com",
-    url: "https://newbinsbay.hashirnisam.com",
-    type: "subdomain",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["E-Commerce", "Retail", "WordPress", "Staging"]
-  },
-  {
-    id: "client-13",
-    name: "Najem Al Jusrain Cafe",
-    domain: "najemaljusraincafe.com",
-    url: "https://najemaljusraincafe.com",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Cafe", "Restaurant", "Food", "Coffee", "Custom Domain"]
-  },
-  {
-    id: "client-14",
-    name: "ES Global",
-    domain: "esglobal.hashirnisam.com",
-    url: "https://esglobal.hashirnisam.com",
-    type: "subdomain",
-    category: "Industrial, Trading & Engineering",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Global Trade", "Import Export", "Staging"]
-  },
-  {
-    id: "client-15",
-    name: "Blue Star HR",
-    domain: "bluestarhr.com",
-    url: "https://bluestarhr.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["HR", "Recruitment", "Staffing", "Custom Domain"]
-  },
-  {
-    id: "client-16",
-    name: "Silvan Global",
-    domain: "silvanglobal.com",
-    url: "https://silvanglobal.com",
-    type: "custom",
-    category: "Industrial, Trading & Engineering",
-    platform: "WordPress",
-    status: "Needs Attention",
-    tags: ["Trading", "Industrial", "Custom Domain"]
-  },
-  {
-    id: "client-17",
-    name: "360 Media (New)",
-    domain: "360new.hashirnisam.com",
-    url: "https://360new.hashirnisam.com",
-    type: "subdomain",
-    category: "Creative Agency & Media",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Media", "Marketing", "Digital Agency", "Staging"]
-  },
-  {
-    id: "client-18",
-    name: "Riju's (V1)",
-    domain: "rijus.hashirnisam.com",
-    url: "https://rijus.hashirnisam.com",
-    type: "subdomain",
-    category: "Portfolios & Personal Brands",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Portfolio", "Personal", "WordPress", "Staging"]
-  },
-  {
-    id: "client-19",
-    name: "Shop Brod",
-    domain: "shopbrod.com",
-    url: "https://shopbrod.com",
-    type: "custom",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Fashion", "Apparel", "E-Commerce", "Custom Domain"]
-  },
-  {
-    id: "client-20",
-    name: "Sana Tissue",
-    domain: "sanatissue.hashirnisam.com",
-    url: "https://sanatissue.hashirnisam.com",
-    type: "subdomain",
-    category: "Industrial, Trading & Engineering",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Manufacturing", "Hygiene", "Paper Products", "Staging"]
-  },
-  {
-    id: "client-21",
-    name: "360 Media Agency",
-    domain: "360.hashirnisam.com",
-    url: "https://360.hashirnisam.com",
-    type: "subdomain",
-    category: "Creative Agency & Media",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Agency", "Creative", "Branding", "Staging"]
-  },
-  {
-    id: "client-22",
-    name: "Rashi Cafe (New)",
-    domain: "rashicafenew.hashirnisam.com",
-    url: "https://rashicafenew.hashirnisam.com",
-    type: "subdomain",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Cafe", "Beverages", "Food", "Staging"]
-  },
-  {
-    id: "client-23",
-    name: "Flower Hub UAE",
-    domain: "flowerhub.ae",
-    url: "https://flowerhub.ae",
-    type: "custom",
-    category: "Gifts & Floral",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Florist", "Flower Delivery", "Gifts", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-24",
-    name: "The Specs Store",
-    domain: "thespecsstore.ae",
-    url: "https://thespecsstore.ae",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Eyewear", "Optical", "Glasses", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-25",
-    name: "Bellaa Beauty Salon",
-    domain: "bellaabeautysalon.com",
-    url: "https://bellaabeautysalon.com",
-    type: "custom",
-    category: "Health, Fitness & Wellness",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Beauty Salon", "Spa", "Cosmetics", "Hair & Nails", "Custom Domain"]
-  },
-  {
-    id: "client-26",
-    name: "Dvice UK",
-    domain: "dvice.uk",
-    url: "https://dvice.uk",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Electronics", "Gadgets", "Retail", "UK", "Custom Domain"]
-  },
-  {
-    id: "client-27",
-    name: "La Vintage Home",
-    domain: "lavintagehome.com",
-    url: "https://lavintagehome.com",
-    type: "custom",
-    category: "Real Estate & Interior Design",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Home Decor", "Vintage", "Interior", "Furniture", "Custom Domain"]
-  },
-  {
-    id: "client-28",
-    name: "Rashad Business Setup",
-    domain: "rashadbusinesssetup.com",
-    url: "https://rashadbusinesssetup.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Business Setup", "PRO Services", "Company Formation", "Custom Domain"]
-  },
-  {
-    id: "client-29",
-    name: "Dezora Interiors",
-    domain: "dezorainteriors.com",
-    url: "https://dezorainteriors.com",
-    type: "custom",
-    category: "Real Estate & Interior Design",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Interior Design", "Fitout", "Architecture", "Custom Domain"]
-  },
-  {
-    id: "client-30",
-    name: "Rafas Foods",
-    domain: "rafasfoods.com",
-    url: "https://rafasfoods.com",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Food Products", "Catering", "F&B", "Custom Domain"]
-  },
-  {
-    id: "client-31",
-    name: "Halava (Staging)",
-    domain: "halavanew.hashirnisam.com",
-    url: "https://halavanew.hashirnisam.com",
-    type: "subdomain",
-    category: "Travel, Tourism & Hospitality",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Travel", "Holidays", "Tours", "Staging"]
-  },
-  {
-    id: "client-32",
-    name: "Nadeem Seafood",
-    domain: "nadeemseafood.com",
-    url: "https://nadeemseafood.com",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Seafood", "Restaurant", "Fresh Fish", "Dining", "Custom Domain"]
-  },
-  {
-    id: "client-33",
-    name: "Zivo Tech",
-    domain: "zivo-tech.com",
-    url: "https://zivo-tech.com",
-    type: "custom",
-    category: "Technology & IT Solutions",
-    platform: "WordPress",
-    status: "Expiring Soon",
-    tags: ["IT Services", "Tech Solutions", "Software", "Custom Domain"]
-  },
-  {
-    id: "client-34",
-    name: "Halava Holidays",
-    domain: "halavaholidays.com",
-    url: "https://halavaholidays.com",
-    type: "custom",
-    category: "Travel, Tourism & Hospitality",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Travel Agency", "Holiday Packages", "Visa & Flights", "Custom Domain"]
-  },
-  {
-    id: "client-35",
-    name: "Ray Sports UAE",
-    domain: "raysportsuae.com",
-    url: "https://raysportsuae.com",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Sports Goods", "Fitness Gear", "UAE", "Retail", "Custom Domain"]
-  },
-  {
-    id: "client-36",
-    name: "Wellness Studio",
-    domain: "welness.hashirnisam.com",
-    url: "https://welness.hashirnisam.com",
-    type: "subdomain",
-    category: "Health, Fitness & Wellness",
-    platform: "HTML / Web App",
-    status: "Active",
-    tags: ["Wellness", "Health", "Therapy", "Staging"]
-  },
-  {
-    id: "client-37",
-    name: "Falcon Services",
-    domain: "falcon.hashirnisam.com",
-    url: "https://falcon.hashirnisam.com",
-    type: "subdomain",
-    category: "Industrial, Trading & Engineering",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Logistics", "Security", "Services", "Staging"]
-  },
-  {
-    id: "client-38",
-    name: "Al Hatimi Valtech",
-    domain: "alhatimivaltech.com",
-    url: "https://alhatimivaltech.com",
-    type: "custom",
-    category: "Industrial, Trading & Engineering",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Valves", "Engineering", "Industrial Solutions", "Custom Domain"]
-  },
-  {
-    id: "client-39",
-    name: "Meltoz Confectionery",
-    domain: "meltoz.ae",
-    url: "https://meltoz.ae",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Chocolates", "Desserts", "Sweets", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-40",
-    name: "Aswaq Express",
-    domain: "aswaqexpress.ae",
-    url: "https://aswaqexpress.ae",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Grocery", "Supermarket Delivery", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-41",
-    name: "Jamre BBQ & Grill",
-    domain: "jamre.ae",
-    url: "https://jamre.ae",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Grill", "BBQ", "Restaurant", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-42",
-    name: "RAK Trading Mall",
-    domain: "raktradingmall.com",
-    url: "https://raktradingmall.com",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Shopping Mall", "Online Store", "Trading", "Custom Domain"]
-  },
-  {
-    id: "client-43",
-    name: "Zeredia Luxury Stays",
-    domain: "zeredialuxurystays.com",
-    url: "https://zeredialuxurystays.com",
-    type: "custom",
-    category: "Real Estate & Interior Design",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Luxury Rentals", "Holiday Homes", "Hospitality", "Custom Domain"]
-  },
-  {
-    id: "client-44",
-    name: "Better Mark Agency",
-    domain: "bettermarknew.hashirnisam.com",
-    url: "https://bettermarknew.hashirnisam.com",
-    type: "subdomain",
-    category: "Creative Agency & Media",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Branding", "Digital Marketing", "Creative Agency", "Staging"]
-  },
-  {
-    id: "client-45",
-    name: "Fine Feichi Textile",
-    domain: "finefeichitextile.com",
-    url: "https://finefeichitextile.com",
-    type: "custom",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Fabrics", "Textile Mill", "Wholesale", "Custom Domain"]
-  },
-  {
-    id: "client-46",
-    name: "My Athoor Perfumes",
-    domain: "myathoor.ae",
-    url: "https://myathoor.ae",
-    type: "custom",
-    category: "Luxury, Jewelry & Perfumes",
-    platform: "WordPress",
-    status: "Needs Attention",
-    tags: ["Perfumes", "Fragrances", "Oud", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-47",
-    name: "Wearox Apparel",
-    domain: "wearox.hashirnisam.com",
-    url: "https://wearox.hashirnisam.com",
-    type: "subdomain",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Streetwear", "Clothing Brand", "Apparel", "Staging"]
-  },
-  {
-    id: "client-48",
-    name: "Binsbay Staging",
-    domain: "binsbay.hashirnisam.com",
-    url: "https://binsbay.hashirnisam.com",
-    type: "subdomain",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["E-Commerce", "Staging", "Retail"]
-  },
-  {
-    id: "client-49",
-    name: "Niran Real Estate",
-    domain: "niranrealestate.ae",
-    url: "https://niranrealestate.ae",
-    type: "custom",
-    category: "Real Estate & Interior Design",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Real Estate", "Property Brokerage", "Apartments & Villas", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-50",
-    name: "Miya Your Way",
-    domain: "miyayurway.com",
-    url: "https://miyayurway.com",
-    type: "custom",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["Lifestyle", "Fashion", "Beauty", "Custom Domain"]
-  },
-  {
-    id: "client-51",
-    name: "Fabrics Boutique",
-    domain: "fabrics.hashirnisam.com",
-    url: "https://fabrics.hashirnisam.com",
-    type: "subdomain",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Fabrics", "Textile", "Material", "Staging"]
-  },
-  {
-    id: "client-52",
-    name: "Reala Karak Cafe",
-    domain: "realakarakcafe.com",
-    url: "https://realakarakcafe.com",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Tea & Karak", "Cafe", "Snacks", "Dining", "Custom Domain"]
-  },
-  {
-    id: "client-53",
-    name: "The Finobel Advisory",
-    domain: "thefinobel.com",
-    url: "https://thefinobel.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Financial Advisory", "Consulting", "Investments", "Custom Domain"]
-  },
-  {
-    id: "client-54",
-    name: "Sandesh Sweets",
-    domain: "sandeshsweets.hashirnisam.com",
-    url: "https://sandeshsweets.hashirnisam.com",
-    type: "subdomain",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Traditional Sweets", "Mithai", "Desserts", "Staging"]
-  },
-  {
-    id: "client-55",
-    name: "ARG Service UAE",
-    domain: "argserviceuae.com",
-    url: "https://argserviceuae.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Facility Management", "Maintenance", "Services", "UAE", "Custom Domain"]
-  },
-  {
-    id: "client-56",
-    name: "NearMe 888",
-    domain: "nearme888.com",
-    url: "https://nearme888.com",
-    type: "custom",
-    category: "E-Commerce & Retail",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Directory", "Hyperlocal", "Services & Retail", "Custom Domain"]
-  },
-  {
-    id: "client-57",
-    name: "Squared Studio",
-    domain: "squared.hashirnisam.com",
-    url: "https://squared.hashirnisam.com",
-    type: "subdomain",
-    category: "Creative Agency & Media",
-    platform: "HTML / Web App",
-    status: "Active",
-    tags: ["Design Studio", "Creative Agency", "Web App", "Staging"]
-  },
-  {
-    id: "client-58",
-    name: "Al Zahra Typing",
-    domain: "alzahratyping.com",
-    url: "https://alzahratyping.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["Typing Center", "Tasheel", "Government Services", "Custom Domain"]
-  },
-  {
-    id: "client-59",
-    name: "Sadis Organization",
-    domain: "sadisorg.com",
-    url: "https://sadisorg.com",
-    type: "custom",
-    category: "Education & Community",
-    platform: "HTML / Web App",
-    status: "Domain Pending Purchase",
-    tags: ["Non-Profit", "NGO", "Community", "Custom Domain"]
-  },
-  {
-    id: "client-60",
-    name: "Britly Living",
-    domain: "britlyliving.co.uk",
-    url: "https://britlyliving.co.uk",
-    type: "custom",
-    category: "Real Estate & Interior Design",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Modern Living", "Furniture", "Home Decor", "UK", "Custom Domain"]
-  },
-  {
-    id: "client-61",
-    name: "Almas Business Setup",
-    domain: "almasbusinesssetup.com",
-    url: "https://almasbusinesssetup.com",
-    type: "custom",
-    category: "Corporate & Business Services",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["Business Setup", "Trade License", "PRO Services", "Custom Domain"]
-  },
-  {
-    id: "client-62",
-    name: "Suffathu Tharbiya",
-    domain: "suffathutharbiya.com",
-    url: "https://suffathutharbiya.com",
-    type: "custom",
-    category: "Education & Community",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Islamic Academy", "Education", "Institute", "Custom Domain"]
-  },
-  {
-    id: "client-63",
-    name: "Al Wasl Al Masi",
-    domain: "alwaslalmasi.com",
-    url: "https://alwaslalmasi.com",
-    type: "custom",
-    category: "Luxury, Jewelry & Perfumes",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["Gold & Diamond", "Jewelry", "Luxury Goods", "Custom Domain"]
-  },
-  {
-    id: "client-64",
-    name: "Jewel Saga Expo",
-    domain: "jewelsagaexpo.com",
-    url: "https://jewelsagaexpo.com",
-    type: "custom",
-    category: "Luxury, Jewelry & Perfumes",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["Jewelry Expo", "Trade Show", "Events", "Custom Domain"]
-  },
-  {
-    id: "client-65",
-    name: "Kompass Architects",
-    domain: "kompassarchitects.com",
-    url: "https://kompassarchitects.com",
-    type: "custom",
-    category: "Real Estate & Interior Design",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Architects", "Civil Engineering", "Design", "Custom Domain"]
-  },
-  {
-    id: "client-66",
-    name: "A-One Snacks",
-    domain: "aonesnacks.com",
-    url: "https://aonesnacks.com",
-    type: "custom",
-    category: "Food & Beverage / Dining",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["Packaged Snacks", "Food Manufacturer", "Wholesale", "Custom Domain"]
-  },
-  {
-    id: "client-67",
-    name: "Leads Mens Hostels",
-    domain: "leadsmenshostels.com",
-    url: "https://leadsmenshostels.com",
-    type: "custom",
-    category: "Travel, Tourism & Hospitality",
-    platform: "HTML / Web App",
-    status: "Domain Pending Purchase",
-    tags: ["Accommodation", "Hostel", "Living Spaces", "Custom Domain"]
-  },
-  {
-    id: "client-68",
-    name: "Uteck Systems",
-    domain: "utecksystems.com",
-    url: "https://utecksystems.com",
-    type: "custom",
-    category: "Technology & IT Solutions",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Networking", "CCTV & Security", "IT Hardware", "Custom Domain"]
-  },
-  {
-    id: "client-69",
-    name: "Scott Kids",
-    domain: "scottkids.com",
-    url: "https://scottkids.com",
-    type: "custom",
-    category: "Fashion, Apparel & Textiles",
-    platform: "WordPress",
-    status: "Needs Attention",
-    tags: ["Children Fashion", "Kids Wear", "Toys", "Custom Domain"]
-  },
-  {
-    id: "client-70",
-    name: "Corvair Trading",
-    domain: "corvairtrading.com",
-    url: "https://corvairtrading.com",
-    type: "custom",
-    category: "Industrial, Trading & Engineering",
-    platform: "WordPress",
-    status: "Domain Pending Purchase",
-    tags: ["General Trading", "Import Export", "Distribution", "Custom Domain"]
-  },
-  {
-    id: "client-71",
-    name: "Mamaty Sarees",
-    domain: "mamatysarees.com",
-    url: "https://mamatysarees.com",
-    type: "custom",
-    category: "Fashion, Apparel & Textiles",
-    platform: "HTML / Web App",
-    status: "Active",
-    tags: ["Sarees", "Ethnic Wear", "Bridal", "Silk", "Custom Domain"]
-  },
-  {
-    id: "client-72",
-    name: "Ayurmanthra Vatakara",
-    domain: "ayurmanthravatakara.in",
-    url: "https://ayurmanthravatakara.in",
-    type: "custom",
-    category: "Health, Fitness & Wellness",
-    platform: "WordPress",
-    status: "Active",
-    tags: ["Ayurvedic Clinic", "Holistic Healthcare", "Panchakarma", "India", "Custom Domain"]
+    "id": "client-01",
+    "name": "Riju's Portfolio",
+    "domain": "rijuss.hashirnisam.com",
+    "url": "https://rijuss.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Portfolios & Personal Brands",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Portfolio",
+      "Personal",
+      "WordPress",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-02",
+    "name": "Pandur World Cookies",
+    "domain": "pandurworld.com",
+    "url": "https://pandurworld.com",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "HTML / Web App",
+    "status": "Pending Setup",
+    "tags": [
+      "Cookies",
+      "Bakery",
+      "Food & Beverage",
+      "Snacks",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-03",
+    "name": "Safeway Services",
+    "domain": "safeway.hashirnisam.com",
+    "url": "https://safeway.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Corporate & Business Services",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Services",
+      "Corporate",
+      "WordPress",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-04",
+    "name": "Shaista Fathima",
+    "domain": "shaistafathima.com",
+    "url": "https://shaistafathima.com",
+    "type": "custom",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Fashion",
+      "Designer",
+      "Portfolio",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-05",
+    "name": "Rashid Ali (Dev 2)",
+    "domain": "rashidali2.hashirnisam.com",
+    "url": "https://rashidali2.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Portfolios & Personal Brands",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Personal",
+      "Consulting",
+      "WordPress",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-06",
+    "name": "Rashid Ali",
+    "domain": "rashidali.hashirnisam.com",
+    "url": "https://rashidali.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Portfolios & Personal Brands",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Portfolio",
+      "Business",
+      "WordPress",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-07",
+    "name": "Flower Hub (Staging)",
+    "domain": "flowerhub.hashirnisam.com",
+    "url": "https://flowerhub.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Gifts & Floral",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Flowers",
+      "Gifts",
+      "E-Commerce",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-08",
+    "name": "Brod (Staging)",
+    "domain": "brod.hashirnisam.com",
+    "url": "https://brod.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Fashion",
+      "Clothing",
+      "Retail",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-09",
+    "name": "Sam Fitness Official",
+    "domain": "samfitnessofficial.ae",
+    "url": "https://samfitnessofficial.ae",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Fitness",
+      "Gym",
+      "Trainer",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-10",
+    "name": "BCGM LLC",
+    "domain": "bcgmllc.com",
+    "url": "https://bcgmllc.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Industrial",
+      "Engineering",
+      "Trading",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-11",
+    "name": "Binsbay",
+    "domain": "binsbay.com",
+    "url": "https://binsbay.com",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "E-Commerce",
+      "Shopping",
+      "Retail",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-12",
+    "name": "Binsbay (New Staging)",
+    "domain": "newbinsbay.hashirnisam.com",
+    "url": "https://newbinsbay.hashirnisam.com",
+    "type": "subdomain",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "E-Commerce",
+      "Retail",
+      "WordPress",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-13",
+    "name": "Najem Al Jusrain Cafe",
+    "domain": "najemaljusraincafe.com",
+    "url": "https://najemaljusraincafe.com",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Cafe",
+      "Restaurant",
+      "Food",
+      "Coffee",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-14",
+    "name": "ES Global",
+    "domain": "esglobal.hashirnisam.com",
+    "url": "https://esglobal.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Global Trade",
+      "Import Export",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-15",
+    "name": "Blue Star HR",
+    "domain": "bluestarhr.com",
+    "url": "https://bluestarhr.com",
+    "type": "custom",
+    "category": "Corporate & Business Services",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "HR",
+      "Recruitment",
+      "Staffing",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-16",
+    "name": "Silvan Global",
+    "domain": "silvanglobal.com",
+    "url": "https://silvanglobal.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Needs Attention",
+    "tags": [
+      "Trading",
+      "Industrial",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-17",
+    "name": "360 Media (New)",
+    "domain": "360new.hashirnisam.com",
+    "url": "https://360new.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Creative Agency & Media",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Media",
+      "Marketing",
+      "Digital Agency",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-18",
+    "name": "Riju's (V1)",
+    "domain": "rijus.hashirnisam.com",
+    "url": "https://rijus.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Portfolios & Personal Brands",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Portfolio",
+      "Personal",
+      "WordPress",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-19",
+    "name": "Shop Brod",
+    "domain": "shopbrod.com",
+    "url": "https://shopbrod.com",
+    "type": "custom",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Fashion",
+      "Apparel",
+      "E-Commerce",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-20",
+    "name": "Sana Tissue",
+    "domain": "sanatissue.hashirnisam.com",
+    "url": "https://sanatissue.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Manufacturing",
+      "Hygiene",
+      "Paper Products",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-21",
+    "name": "360 Media Agency",
+    "domain": "360.hashirnisam.com",
+    "url": "https://360.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Creative Agency & Media",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Agency",
+      "Creative",
+      "Branding",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-22",
+    "name": "Rashi Cafe (New)",
+    "domain": "rashicafenew.hashirnisam.com",
+    "url": "https://rashicafenew.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Cafe",
+      "Beverages",
+      "Food",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-23",
+    "name": "Flower Hub UAE",
+    "domain": "flowerhub.ae",
+    "url": "https://flowerhub.ae",
+    "type": "custom",
+    "category": "Gifts & Floral",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Florist",
+      "Flower Delivery",
+      "Gifts",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-24",
+    "name": "The Specs Store",
+    "domain": "thespecsstore.ae",
+    "url": "https://thespecsstore.ae",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Eyewear",
+      "Optical",
+      "Glasses",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-25",
+    "name": "Bellaa Beauty Salon",
+    "domain": "bellaabeautysalon.com",
+    "url": "https://bellaabeautysalon.com",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Beauty Salon",
+      "Spa",
+      "Cosmetics",
+      "Hair & Nails",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-26",
+    "name": "Dvice UK",
+    "domain": "dvice.uk",
+    "url": "https://dvice.uk",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Electronics",
+      "Gadgets",
+      "Retail",
+      "UK",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-27",
+    "name": "La Vintage Home",
+    "domain": "lavintagehome.com",
+    "url": "https://lavintagehome.com",
+    "type": "custom",
+    "category": "Real Estate & Interior Design",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Home Decor",
+      "Vintage",
+      "Interior",
+      "Furniture",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-28",
+    "name": "Rashad Business Setup",
+    "domain": "rashadbusinesssetup.com",
+    "url": "https://rashadbusinesssetup.com",
+    "type": "custom",
+    "category": "Corporate & Business Services",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Business Setup",
+      "PRO Services",
+      "Company Formation",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-29",
+    "name": "Dezora Interiors",
+    "domain": "dezorainteriors.com",
+    "url": "https://dezorainteriors.com",
+    "type": "custom",
+    "category": "Real Estate & Interior Design",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Interior Design",
+      "Fitout",
+      "Architecture",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-30",
+    "name": "Rafas Foods",
+    "domain": "rafasfoods.com",
+    "url": "https://rafasfoods.com",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Food Products",
+      "Catering",
+      "F&B",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-31",
+    "name": "Halava (Staging)",
+    "domain": "halavanew.hashirnisam.com",
+    "url": "https://halavanew.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Travel, Tourism & Hospitality",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Travel",
+      "Holidays",
+      "Tours",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-32",
+    "name": "Nadeem Seafood",
+    "domain": "nadeemseafood.com",
+    "url": "https://nadeemseafood.com",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Seafood",
+      "Restaurant",
+      "Fresh Fish",
+      "Dining",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-33",
+    "name": "Zivo Tech",
+    "domain": "zivo-tech.com",
+    "url": "https://zivo-tech.com",
+    "type": "custom",
+    "category": "Technology & IT Solutions",
+    "platform": "WordPress",
+    "status": "Expiring Soon",
+    "tags": [
+      "IT Services",
+      "Tech Solutions",
+      "Software",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-34",
+    "name": "Halava Holidays",
+    "domain": "halavaholidays.com",
+    "url": "https://halavaholidays.com",
+    "type": "custom",
+    "category": "Travel, Tourism & Hospitality",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Travel Agency",
+      "Holiday Packages",
+      "Visa & Flights",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-35",
+    "name": "Ray Sports UAE",
+    "domain": "raysportsuae.com",
+    "url": "https://raysportsuae.com",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Sports Goods",
+      "Fitness Gear",
+      "UAE",
+      "Retail",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-36",
+    "name": "Wellness Studio",
+    "domain": "welness.hashirnisam.com",
+    "url": "https://welness.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Health, Fitness & Wellness",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Wellness",
+      "Health",
+      "Therapy",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-37",
+    "name": "Falcon Services",
+    "domain": "falcon.hashirnisam.com",
+    "url": "https://falcon.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Logistics",
+      "Security",
+      "Services",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-38",
+    "name": "Al Hatimi Valtech",
+    "domain": "alhatimivaltech.com",
+    "url": "https://alhatimivaltech.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Valves",
+      "Engineering",
+      "Industrial Solutions",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-39",
+    "name": "Meltoz Confectionery",
+    "domain": "meltoz.ae",
+    "url": "https://meltoz.ae",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Chocolates",
+      "Desserts",
+      "Sweets",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-40",
+    "name": "Aswaq Express",
+    "domain": "aswaqexpress.ae",
+    "url": "https://aswaqexpress.ae",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Grocery",
+      "Supermarket Delivery",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-41",
+    "name": "Jamre BBQ & Grill",
+    "domain": "jamre.ae",
+    "url": "https://jamre.ae",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Grill",
+      "BBQ",
+      "Restaurant",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-42",
+    "name": "RAK Trading Mall",
+    "domain": "raktradingmall.com",
+    "url": "https://raktradingmall.com",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Shopping Mall",
+      "Online Store",
+      "Trading",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-43",
+    "name": "Zeredia Luxury Stays",
+    "domain": "zeredialuxurystays.com",
+    "url": "https://zeredialuxurystays.com",
+    "type": "custom",
+    "category": "Real Estate & Interior Design",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Luxury Rentals",
+      "Holiday Homes",
+      "Hospitality",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-44",
+    "name": "Better Mark Agency",
+    "domain": "bettermarknew.hashirnisam.com",
+    "url": "https://bettermarknew.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Creative Agency & Media",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Branding",
+      "Digital Marketing",
+      "Creative Agency",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-45",
+    "name": "Fine Feichi Textile",
+    "domain": "finefeichitextile.com",
+    "url": "https://finefeichitextile.com",
+    "type": "custom",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Fabrics",
+      "Textile Mill",
+      "Wholesale",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-46",
+    "name": "My Athoor Perfumes",
+    "domain": "myathoor.ae",
+    "url": "https://myathoor.ae",
+    "type": "custom",
+    "category": "Luxury, Jewelry & Perfumes",
+    "platform": "WordPress",
+    "status": "Needs Attention",
+    "tags": [
+      "Perfumes",
+      "Fragrances",
+      "Oud",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-47",
+    "name": "Wearox Apparel",
+    "domain": "wearox.hashirnisam.com",
+    "url": "https://wearox.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Streetwear",
+      "Clothing Brand",
+      "Apparel",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-48",
+    "name": "Binsbay Staging",
+    "domain": "binsbay.hashirnisam.com",
+    "url": "https://binsbay.hashirnisam.com",
+    "type": "subdomain",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "E-Commerce",
+      "Staging",
+      "Retail"
+    ]
+  },
+  {
+    "id": "client-49",
+    "name": "Niran Real Estate",
+    "domain": "niranrealestate.ae",
+    "url": "https://niranrealestate.ae",
+    "type": "custom",
+    "category": "Real Estate & Interior Design",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Real Estate",
+      "Property Brokerage",
+      "Apartments & Villas",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-50",
+    "name": "Miya Your Way",
+    "domain": "miyayurway.com",
+    "url": "https://miyayurway.com",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Wellness",
+      "Health",
+      "Ayurway",
+      "Lifestyle",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-51",
+    "name": "Fabrics Boutique",
+    "domain": "fabrics.hashirnisam.com",
+    "url": "https://fabrics.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Fabrics",
+      "Textile",
+      "Material",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-52",
+    "name": "Reala Karak Cafe",
+    "domain": "realakarakcafe.com",
+    "url": "https://realakarakcafe.com",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Tea & Karak",
+      "Cafe",
+      "Snacks",
+      "Dining",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-53",
+    "name": "The Finobel Advisory",
+    "domain": "thefinobel.com",
+    "url": "https://thefinobel.com",
+    "type": "custom",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Fashion",
+      "Apparel",
+      "Textiles",
+      "Finobel",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-54",
+    "name": "Sandesh Sweets",
+    "domain": "sandeshsweets.hashirnisam.com",
+    "url": "https://sandeshsweets.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Traditional Sweets",
+      "Mithai",
+      "Desserts",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-55",
+    "name": "ARG Service UAE",
+    "domain": "argserviceuae.com",
+    "url": "https://argserviceuae.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Engineering",
+      "Maintenance",
+      "Industrial Services",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-56",
+    "name": "NearMe 888",
+    "domain": "nearme888.com",
+    "url": "https://nearme888.com",
+    "type": "custom",
+    "category": "Corporate & Business Services",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Business Directory",
+      "Services",
+      "Corporate",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-57",
+    "name": "Squared Studio",
+    "domain": "squared.hashirnisam.com",
+    "url": "https://squared.hashirnisam.com",
+    "type": "subdomain",
+    "category": "Creative Agency & Media",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Design Studio",
+      "Creative Agency",
+      "Web App",
+      "Staging"
+    ]
+  },
+  {
+    "id": "client-58",
+    "name": "Al Zahra Typing",
+    "domain": "alzahratyping.com",
+    "url": "https://alzahratyping.com",
+    "type": "custom",
+    "category": "Corporate & Business Services",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Typing Center",
+      "Tasheel",
+      "Government Services",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-59",
+    "name": "Sadis Organization",
+    "domain": "sadisorg.com",
+    "url": "https://sadisorg.com",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "HTML / Web App",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Healthcare",
+      "Wellness",
+      "Community",
+      "Organization",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-60",
+    "name": "Britly Living",
+    "domain": "britlyliving.co.uk",
+    "url": "https://britlyliving.co.uk",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Home Retail",
+      "Furniture",
+      "E-Commerce",
+      "Decor",
+      "UK",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-61",
+    "name": "Almas Business Setup",
+    "domain": "almasbusinesssetup.com",
+    "url": "https://almasbusinesssetup.com",
+    "type": "custom",
+    "category": "Corporate & Business Services",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Business Setup",
+      "Trade License",
+      "PRO Services",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-62",
+    "name": "Suffathu Tharbiya",
+    "domain": "suffathutharbiya.com",
+    "url": "https://suffathutharbiya.com",
+    "type": "custom",
+    "category": "Education & Community",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Islamic Academy",
+      "Education",
+      "Institute",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-63",
+    "name": "Al Wasl Al Masi",
+    "domain": "alwaslalmasi.com",
+    "url": "https://alwaslalmasi.com",
+    "type": "custom",
+    "category": "Luxury, Jewelry & Perfumes",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Gold & Diamond",
+      "Jewelry",
+      "Luxury Goods",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-64",
+    "name": "Jewel Saga Expo",
+    "domain": "jewelsagaexpo.com",
+    "url": "https://jewelsagaexpo.com",
+    "type": "custom",
+    "category": "Luxury, Jewelry & Perfumes",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Jewelry Expo",
+      "Trade Show",
+      "Events",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-65",
+    "name": "Kompass Architects",
+    "domain": "kompassarchitects.com",
+    "url": "https://kompassarchitects.com",
+    "type": "custom",
+    "category": "Real Estate & Interior Design",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Architects",
+      "Civil Engineering",
+      "Design",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-66",
+    "name": "A-One Snacks",
+    "domain": "aonesnacks.com",
+    "url": "https://aonesnacks.com",
+    "type": "custom",
+    "category": "Food & Beverage / Dining",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Packaged Snacks",
+      "Food Manufacturer",
+      "Wholesale",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-67",
+    "name": "Leads Mens Hostels",
+    "domain": "leadsmenshostels.com",
+    "url": "https://leadsmenshostels.com",
+    "type": "custom",
+    "category": "Travel, Tourism & Hospitality",
+    "platform": "HTML / Web App",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "Accommodation",
+      "Hostel",
+      "Living Spaces",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-68",
+    "name": "Uteck Systems",
+    "domain": "utecksystems.com",
+    "url": "https://utecksystems.com",
+    "type": "custom",
+    "category": "Technology & IT Solutions",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Networking",
+      "CCTV & Security",
+      "IT Hardware",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-69",
+    "name": "Scott Kids",
+    "domain": "scottkids.com",
+    "url": "https://scottkids.com",
+    "type": "custom",
+    "category": "Education & Community",
+    "platform": "WordPress",
+    "status": "Needs Attention",
+    "tags": [
+      "Kids",
+      "Education",
+      "Learning",
+      "Community",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-70",
+    "name": "Corvair Trading",
+    "domain": "corvairtrading.com",
+    "url": "https://corvairtrading.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Domain Pending Purchase",
+    "tags": [
+      "General Trading",
+      "Import Export",
+      "Distribution",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-71",
+    "name": "Mamaty Sarees",
+    "domain": "mamatysarees.com",
+    "url": "https://mamatysarees.com",
+    "type": "custom",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Sarees",
+      "Ethnic Wear",
+      "Bridal",
+      "Silk",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-72",
+    "name": "Ayurmanthra Vatakara",
+    "domain": "ayurmanthravatakara.in",
+    "url": "https://ayurmanthravatakara.in",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Ayurvedic Clinic",
+      "Holistic Healthcare",
+      "Panchakarma",
+      "India",
+      "Custom Domain"
+    ]
   }
 ];
-
-if (typeof module !== "undefined" && module.exports) {
-  module.exports = CLIENTS_DATA;
-}
