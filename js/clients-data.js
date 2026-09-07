@@ -1,23 +1,24 @@
 /**
  * Clients Database for Sales Team Directory
- * Extracted and curated from Hostinger hPanel Client Roster
- * Verified & Updated with Approved Client Additions
+ * Verified & Updated from Client_Category_Verification_FULLY_VERIFIED_FIXED.xlsx
+ * and Client_Category_Verification_16_WEBSITES_VERIFIED.xlsx
  */
 
 const CLIENTS_DATA = [
   {
     "id": "client-01",
-    "name": "Riju's Portfolio",
+    "name": "Riju's Natural Skincare",
     "domain": "rijuss.hashirnisam.com",
     "url": "https://rijuss.hashirnisam.com",
     "type": "subdomain",
-    "category": "Portfolios & Personal Brands",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Portfolio",
-      "Personal",
-      "WordPress",
+      "Skincare",
+      "Soaps",
+      "Natural Wellness",
+      "Handcrafted",
       "Staging"
     ]
   },
@@ -60,12 +61,13 @@ const CLIENTS_DATA = [
     "domain": "shaistafathima.com",
     "url": "https://shaistafathima.com",
     "type": "custom",
-    "category": "Fashion, Apparel & Textiles",
+    "category": "Portfolios & Personal Brands",
     "platform": "HTML / Web App",
     "status": "Active",
     "tags": [
-      "Fashion",
-      "Designer",
+      "Data Analytics",
+      "AI / ML",
+      "Software Testing",
       "Portfolio",
       "Custom Domain"
     ]
@@ -153,7 +155,7 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-10",
-    "name": "BCGM LLC",
+    "name": "Bandhan Construction",
     "domain": "bcgmllc.com",
     "url": "https://bcgmllc.com",
     "type": "custom",
@@ -161,9 +163,10 @@ const CLIENTS_DATA = [
     "platform": "HTML / Web App",
     "status": "Active",
     "tags": [
-      "Industrial",
-      "Engineering",
-      "Trading",
+      "Construction",
+      "Contracting",
+      "General Maintenance",
+      "UAE",
       "Custom Domain"
     ]
   },
@@ -173,13 +176,15 @@ const CLIENTS_DATA = [
     "domain": "binsbay.com",
     "url": "https://binsbay.com",
     "type": "custom",
-    "category": "E-Commerce & Retail",
+    "category": "Creative Agency & Media",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "E-Commerce",
-      "Shopping",
-      "Retail",
+      "Sign Printing",
+      "Branding",
+      "Advertising",
+      "Videography",
+      "Web Dev",
       "Custom Domain"
     ]
   },
@@ -416,13 +421,13 @@ const CLIENTS_DATA = [
     "domain": "dvice.uk",
     "url": "https://dvice.uk",
     "type": "custom",
-    "category": "E-Commerce & Retail",
+    "category": "Technology & IT Solutions",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
       "Electronics",
-      "Gadgets",
-      "Retail",
+      "Power Conversion",
+      "Hardware Manufacturing",
       "UK",
       "Custom Domain"
     ]
@@ -494,17 +499,17 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-31",
-    "name": "Halava (Staging)",
+    "name": "Halava Sweets",
     "domain": "halavanew.hashirnisam.com",
     "url": "https://halavanew.hashirnisam.com",
     "type": "subdomain",
-    "category": "Travel, Tourism & Hospitality",
+    "category": "Food & Beverage / Dining",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Travel",
-      "Holidays",
-      "Tours",
+      "Halwa",
+      "Traditional Sweets",
+      "F&B",
       "Staging"
     ]
   },
@@ -563,14 +568,15 @@ const CLIENTS_DATA = [
     "domain": "raysportsuae.com",
     "url": "https://raysportsuae.com",
     "type": "custom",
-    "category": "E-Commerce & Retail",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Sports Goods",
-      "Fitness Gear",
+      "Gym Equipment",
+      "Fitness",
+      "Sports Flooring",
+      "Maintenance",
       "UAE",
-      "Retail",
       "Custom Domain"
     ]
   },
@@ -657,18 +663,17 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-41",
-    "name": "Jamre BBQ & Grill",
+    "name": "Jabal Almadina Real Estate (JAMRE)",
     "domain": "jamre.ae",
     "url": "https://jamre.ae",
     "type": "custom",
-    "category": "Food & Beverage / Dining",
+    "category": "Real Estate & Interior Design",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Grill",
-      "BBQ",
-      "Restaurant",
-      "UAE",
+      "Real Estate Brokerage",
+      "Property Sales & Leasing",
+      "Dubai",
       "Custom Domain"
     ]
   },
@@ -706,17 +711,18 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-44",
-    "name": "Better Mark Agency",
+    "name": "Bettermark Groceries",
     "domain": "bettermarknew.hashirnisam.com",
     "url": "https://bettermarknew.hashirnisam.com",
     "type": "subdomain",
-    "category": "Creative Agency & Media",
+    "category": "E-Commerce & Retail",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Branding",
-      "Digital Marketing",
-      "Creative Agency",
+      "Online Grocery",
+      "Fresh Produce",
+      "Fruits & Vegetables",
+      "Delivery",
       "Staging"
     ]
   },
@@ -1229,6 +1235,291 @@ const CLIENTS_DATA = [
       "Conferences",
       "MICE",
       "Exhibitions",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-76",
+    "name": "Al Wifaq Online",
+    "domain": "alwifaqonline.com",
+    "url": "https://alwifaqonline.com",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Watches",
+      "Casio Partner",
+      "G-SHOCK",
+      "E-Commerce",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-77",
+    "name": "Cedar Cosmetics",
+    "domain": "cedarcosmetics.com",
+    "url": "https://cedarcosmetics.com",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Cosmetics",
+      "Skincare",
+      "SKIN1004",
+      "K-Beauty",
+      "E-Commerce",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-78",
+    "name": "La Fille Élégante",
+    "domain": "lafille-elegante.com",
+    "url": "https://lafille-elegante.com",
+    "type": "custom",
+    "category": "Fashion, Apparel & Textiles",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Abayas",
+      "Modest Fashion",
+      "Designer Apparel",
+      "E-Commerce",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-79",
+    "name": "Vogue Venue",
+    "domain": "voguevenue.ae",
+    "url": "https://voguevenue.ae",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Watches",
+      "Clocks",
+      "Multi-Brand Retail",
+      "E-Commerce",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-80",
+    "name": "Sunrise Arabia",
+    "domain": "sunrisearabia.com",
+    "url": "https://sunrisearabia.com",
+    "type": "custom",
+    "category": "E-Commerce & Retail",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Electronics",
+      "Mobile Accessories",
+      "Headphones",
+      "E-Commerce",
+      "Oman",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-81",
+    "name": "Ashal United",
+    "domain": "ashalunited.com",
+    "url": "https://ashalunited.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Home Appliances",
+      "B2B Trading",
+      "Multimedia",
+      "Distribution",
+      "KSA",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-82",
+    "name": "Careintco International",
+    "domain": "careintco.com",
+    "url": "https://careintco.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Electronics Trading",
+      "Distribution",
+      "Sourcing",
+      "KSA",
+      "Oman",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-83",
+    "name": "1Point360",
+    "domain": "1point360.com",
+    "url": "https://1point360.com",
+    "type": "custom",
+    "category": "Corporate & Business Services",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Accounting",
+      "Audit",
+      "Tax",
+      "PRO Services",
+      "Business Setup",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-84",
+    "name": "Ayursiha Hospital",
+    "domain": "ayursiha.com",
+    "url": "https://ayursiha.com",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Ayurveda Hospital",
+      "Physiotherapy",
+      "Unani",
+      "Healthcare",
+      "Kochi",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-85",
+    "name": "Al Zehra Tours & Travels",
+    "domain": "alzehra.com",
+    "url": "https://alzehra.com",
+    "type": "custom",
+    "category": "Travel, Tourism & Hospitality",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Tours & Travels",
+      "Kerala Tourism",
+      "Vacation Packages",
+      "Holidays",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-86",
+    "name": "Amigos Logistics",
+    "domain": "amigoslogistics.com",
+    "url": "https://amigoslogistics.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Freight Forwarding",
+      "Logistics",
+      "Air Freight",
+      "Sea Freight",
+      "Dubai",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-87",
+    "name": "Ultimate Tek Solutions",
+    "domain": "ultimatetek.in",
+    "url": "https://ultimatetek.in",
+    "type": "custom",
+    "category": "Technology & IT Solutions",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Software Development",
+      "ERP",
+      "POS Solutions",
+      "Mobile Apps",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-88",
+    "name": "Ajman Global Pvt Ltd",
+    "domain": "ajmanglobal.com",
+    "url": "https://ajmanglobal.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "General Trading",
+      "Wholesale Trade",
+      "Commodities",
+      "Distribution",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-89",
+    "name": "Tormac Marine",
+    "domain": "tormacmarine.com",
+    "url": "https://tormacmarine.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Marine Services",
+      "Ship Management",
+      "Offshore",
+      "Crewing",
+      "Shipping",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-90",
+    "name": "Al Jamiathul Kauzariyya",
+    "domain": "kauzariyya.com",
+    "url": "https://kauzariyya.com",
+    "type": "custom",
+    "category": "Education & Community",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Arabic College",
+      "Education",
+      "Islamic Academy",
+      "Community",
+      "Donations",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-91",
+    "name": "Hashir Nisam",
+    "domain": "hashirnisam.com",
+    "url": "https://hashirnisam.com",
+    "type": "custom",
+    "category": "Portfolios & Personal Brands",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Founder",
+      "CEO Portfolio",
+      "Personal Branding",
+      "Executive",
       "Custom Domain"
     ]
   }

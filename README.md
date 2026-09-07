@@ -44,13 +44,13 @@ Instead of navigating through cloud hosting control panels (Hostinger hPanel) or
 - 🔍 **Instant Omnibox Search**: Instant client-side search across client names, domain names, categories, platform types, and keywords with `/` keyboard shortcut support.
 - 🏷️ **15 Industry Category Filter Chips**: One-click pills with dynamic client counters for fast browsing (e-commerce, food & beverage, real estate, corporate, fashion, health, tech, and more).
 - 🌐 **Domain Type & Platform Filtering**: Easily toggle between production custom domains (`.com`, `.ae`, etc.) and staging subdomains (`*.hashirnisam.com`), as well as WordPress vs custom HTML applications.
-- 📊 **Real-time Sales KPI Stat Bar**: Live statistics showing Total Clients (72), Custom Domains (50), Staging Subdomains (22), Industry Categories (15), and Active/Live Sites (58).
+- 📊 **Real-time Sales KPI Stat Bar**: Live statistics showing Total Clients (91) across 15 distinct Industry Categories.
 - 🔀 **Dual View Modes**:
-  - **Card Grid View**: Engaging presentation with category badges, status indicators, and direct visit actions.
-  - **Dense Table View**: High-density spreadsheet-style table optimized for rapid data scanning.
+  - **Listing / Table View (Default)**: Clean, high-density spreadsheet-style table optimized for rapid data scanning, direct domain visits, and copying.
+  - **Card Grid View**: Visual card presentation with category badges and direct visit actions.
 - 📋 **One-Click Clipboard Tools**: Copy domain or complete website URL with animated toast feedback.
 - 📥 **One-Click CSV Export**: Download the filtered or full client roster directly into CSV format for CRM imports.
-- 🌓 **Theme Customization**: Sleek dark mode by default with light mode toggle and persistent user preference storage.
+- ☀️ **Clean Minimalist Theme**: Clean light/white theme layout for readability and fast scanning during sales meetings.
 
 ---
 
