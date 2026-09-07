@@ -1,12 +1,31 @@
 /**
- * Sales Team Client Directory - Application Logic
- * Fast client-side searching, multi-criteria filtering, sorting, view switching, and CSV export.
+ * Sales Team Client Directory - Intuitive & Simple Application Logic
  */
 
 (function () {
   'use strict';
 
-  // Application State
+  // Category Icon Mapping for Instant Visual Recognition
+  const CATEGORY_ICONS = {
+    'All': 'fas fa-layer-group',
+    'E-Commerce & Retail': 'fas fa-shopping-cart',
+    'Food & Beverage / Dining': 'fas fa-utensils',
+    'Fashion, Apparel & Textiles': 'fas fa-tshirt',
+    'Corporate & Business Services': 'fas fa-briefcase',
+    'Real Estate & Interior Design': 'fas fa-building',
+    'Industrial, Trading & Engineering': 'fas fa-industry',
+    'Health, Fitness & Wellness': 'fas fa-heartbeat',
+    'Creative Agency & Media': 'fas fa-paint-brush',
+    'Portfolios & Personal Brands': 'fas fa-user-tie',
+    'Travel, Tourism & Hospitality': 'fas fa-plane-departure',
+    'Luxury, Jewelry & Perfumes': 'fas fa-gem',
+    'Technology & IT Solutions': 'fas fa-laptop-code',
+    'Education & Community': 'fas fa-graduation-cap',
+    'Gifts & Floral': 'fas fa-spa',
+    'Entertainment & Media': 'fas fa-film'
+  };
+
+  // State Management
   const state = {
     clients: CLIENTS_DATA || [],
     filteredClients: [],
@@ -20,27 +39,31 @@
     theme: localStorage.getItem('wb_theme') || 'dark'
   };
 
-  // DOM Elements Cache
+  // Cached DOM Elements
   const elements = {
-    // Stats
+    // KPI Counters
     totalClientsCount: document.getElementById('totalClientsCount'),
     customDomainsCount: document.getElementById('customDomainsCount'),
     subdomainsCount: document.getElementById('subdomainsCount'),
     categoriesCount: document.getElementById('categoriesCount'),
     activeSitesCount: document.getElementById('activeSitesCount'),
 
+    // Domain Tab Badges
+    tabBadgeAll: document.getElementById('tabBadgeAll'),
+    tabBadgeCustom: document.getElementById('tabBadgeCustom'),
+    tabBadgeSub: document.getElementById('tabBadgeSub'),
+    domainTabs: document.getElementById('domainTabs'),
+
     // Search & Filters
     searchInput: document.getElementById('searchInput'),
     clearSearchBtn: document.getElementById('clearSearchBtn'),
-    filterDomainType: document.getElementById('filterDomainType'),
     filterPlatform: document.getElementById('filterPlatform'),
     filterStatus: document.getElementById('filterStatus'),
     sortBySelect: document.getElementById('sortBySelect'),
     categoryChipsContainer: document.getElementById('categoryChipsContainer'),
 
-    // View Controls
+    // Results & Views
     resultsCount: document.getElementById('resultsCount'),
-    activeFilterTag: document.getElementById('activeFilterTag'),
     resetAllBtn: document.getElementById('resetAllBtn'),
     gridContainer: document.getElementById('gridContainer'),
     tableContainer: document.getElementById('tableContainer'),
@@ -52,13 +75,13 @@
     gridViewBtn: document.getElementById('gridViewBtn'),
     tableViewBtn: document.getElementById('tableViewBtn'),
 
-    // Actions
+    // Actions & Shell
     exportCsvBtn: document.getElementById('exportCsvBtn'),
     themeToggleBtn: document.getElementById('themeToggleBtn'),
     toastContainer: document.getElementById('toastContainer')
   };
 
-  // Initialize
+  // Boot Application
   function init() {
     applyTheme(state.theme);
     renderCategoryChips();
@@ -68,7 +91,7 @@
     applyViewMode(state.viewMode);
   }
 
-  // Calculate & Update KPI Stats
+  // Update Overview Numbers
   function updateKPIStats() {
     const total = state.clients.length;
     const custom = state.clients.filter(c => c.type === 'custom').length;
@@ -81,33 +104,37 @@
     if (elements.subdomainsCount) elements.subdomainsCount.textContent = sub;
     if (elements.categoriesCount) elements.categoriesCount.textContent = categories;
     if (elements.activeSitesCount) elements.activeSitesCount.textContent = active;
+
+    if (elements.tabBadgeAll) elements.tabBadgeAll.textContent = total;
+    if (elements.tabBadgeCustom) elements.tabBadgeCustom.textContent = custom;
+    if (elements.tabBadgeSub) elements.tabBadgeSub.textContent = sub;
   }
 
-  // Render Category Filter Chips with counts
+  // Render Visual Category Chips with Icons
   function renderCategoryChips() {
     if (!elements.categoryChipsContainer) return;
 
-    // Count categories
     const counts = { All: state.clients.length };
     state.clients.forEach(c => {
       counts[c.category] = (counts[c.category] || 0) + 1;
     });
 
-    // Unique sorted categories
-    const categories = Object.keys(counts).filter(c => c !== 'All').sort();
-    const allCategories = ['All', ...categories];
+    const sortedCategories = Object.keys(counts).filter(c => c !== 'All').sort();
+    const categoriesList = ['All', ...sortedCategories];
 
-    elements.categoryChipsContainer.innerHTML = allCategories.map(cat => {
+    elements.categoryChipsContainer.innerHTML = categoriesList.map(cat => {
       const isActive = state.selectedCategory === cat ? 'active' : '';
+      const iconClass = CATEGORY_ICONS[cat] || 'fas fa-tag';
       return `
         <button type="button" class="chip-btn ${isActive}" data-category="${escapeHtml(cat)}">
+          <i class="${iconClass} chip-icon" aria-hidden="true"></i>
           <span>${escapeHtml(cat)}</span>
           <span class="chip-count">${counts[cat] || 0}</span>
         </button>
       `;
     }).join('');
 
-    // Attach click events
+    // Attach click listeners to chips
     elements.categoryChipsContainer.querySelectorAll('.chip-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const cat = btn.getAttribute('data-category');
@@ -119,7 +146,7 @@
     });
   }
 
-  // Filter and Sort Logic
+  // Filter & Sort Logic
   function applyFilters() {
     const q = state.searchQuery.trim().toLowerCase();
 
@@ -129,7 +156,7 @@
         return false;
       }
 
-      // Domain type filter
+      // Domain type filter (All, Custom, Subdomain)
       if (state.selectedDomainType !== 'all' && client.type !== state.selectedDomainType) {
         return false;
       }
@@ -159,15 +186,12 @@
       return true;
     });
 
-    // Sort
     sortClients();
-
-    // Render results
     renderClients();
     updateResultsSummary();
   }
 
-  // Sort Array
+  // Sort Clients
   function sortClients() {
     state.filteredClients.sort((a, b) => {
       switch (state.sortBy) {
@@ -187,7 +211,7 @@
     });
   }
 
-  // Render Grid and Table
+  // Render Clients (Grid or Table)
   function renderClients() {
     const count = state.filteredClients.length;
 
@@ -218,54 +242,50 @@
     elements.gridContainer.innerHTML = state.filteredClients.map(client => {
       const statusClass = getStatusClass(client.status);
       const isCustom = client.type === 'custom';
-      const typeLabel = isCustom ? 'Custom Domain' : 'Staging / Subdomain';
+      const typeLabel = isCustom ? 'Custom Domain' : 'Staging Site';
       const typeClass = isCustom ? 'custom' : 'subdomain';
       const platformIcon = client.platform === 'WordPress' ? 'fab fa-wordpress' : 'fas fa-code';
+      const catIcon = CATEGORY_ICONS[client.category] || 'fas fa-tag';
 
       return `
         <article class="client-card" id="${client.id}">
-          <div class="card-top">
-            <span class="card-category-badge">${escapeHtml(client.category)}</span>
-            <div class="card-badges-row">
-              <span class="type-pill ${typeClass}">${typeLabel}</span>
-            </div>
+          <div class="card-header">
+            <span class="card-category">
+              <i class="${catIcon}" style="font-size: 0.72rem;"></i>
+              ${escapeHtml(client.category)}
+            </span>
+            <span class="status-badge ${statusClass}">
+              <span class="status-dot"></span> ${escapeHtml(client.status)}
+            </span>
           </div>
 
           <h3 class="card-title">${escapeHtml(client.name)}</h3>
 
+          <!-- Domain Box -->
           <div class="card-domain-box">
-            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="card-domain-link" title="Open ${escapeHtml(client.domain)} in new tab">
-              <i class="fas fa-globe" style="margin-right: 6px; font-size: 0.8rem; opacity: 0.7;"></i>${escapeHtml(client.domain)}
+            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="card-domain-link" title="Open ${escapeHtml(client.domain)}">
+              <i class="fas fa-globe" style="font-size: 0.76rem; opacity: 0.7;"></i>
+              <span>${escapeHtml(client.domain)}</span>
             </a>
-            <button type="button" class="copy-domain-btn" data-copy="${escapeHtml(client.domain)}" title="Copy domain to clipboard">
+            <button type="button" class="copy-icon-btn" data-copy="${escapeHtml(client.domain)}" title="Copy domain">
               <i class="far fa-copy"></i>
             </button>
           </div>
 
-          <div class="card-meta-list">
-            <div class="card-meta-item">
-              <span class="meta-key">Platform</span>
-              <span class="meta-val">
-                <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
-              </span>
-            </div>
-            <div class="card-meta-item">
-              <span class="meta-key">Status</span>
-              <span class="status-pill ${statusClass}">
-                <span class="status-dot"></span> ${escapeHtml(client.status)}
-              </span>
-            </div>
+          <div class="card-meta">
+            <span class="platform-pill">
+              <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
+            </span>
+            <span class="card-type-tag ${typeClass}">
+              ${typeLabel}
+            </span>
           </div>
 
-          <div class="card-actions">
-            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="visit-btn">
-              <span>Visit Site</span>
-              <i class="fas fa-external-link-alt" style="font-size: 0.75rem;"></i>
-            </a>
-            <button type="button" class="copy-action-btn" data-copy="${escapeHtml(client.url)}" title="Copy Full Website URL">
-              <i class="fas fa-link"></i>
-            </button>
-          </div>
+          <!-- Primary Visit Button -->
+          <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="open-site-btn">
+            <span>Open Website</span>
+            <i class="fas fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
+          </a>
         </article>
       `;
     }).join('');
@@ -273,7 +293,7 @@
     attachCopyHandlers(elements.gridContainer);
   }
 
-  // Render Dense Table
+  // Render Table View
   function renderTableView() {
     if (!elements.tableBody) return;
 
@@ -283,41 +303,45 @@
       const typeLabel = isCustom ? 'Custom' : 'Subdomain';
       const typeClass = isCustom ? 'custom' : 'subdomain';
       const platformIcon = client.platform === 'WordPress' ? 'fab fa-wordpress' : 'fas fa-code';
+      const catIcon = CATEGORY_ICONS[client.category] || 'fas fa-tag';
 
       return `
         <tr id="row-${client.id}">
-          <td style="color: var(--text-muted); font-size: 0.8rem;">#${index + 1}</td>
+          <td style="color: var(--text-muted); font-size: 0.78rem;">${index + 1}</td>
           <td>
-            <div class="table-client-name">${escapeHtml(client.name)}</div>
+            <div class="table-client-title">${escapeHtml(client.name)}</div>
           </td>
           <td>
-            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="table-domain-link" title="Open in new tab">
+            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="table-domain" title="Open website">
               ${escapeHtml(client.domain)}
-              <i class="fas fa-external-link-alt" style="font-size: 0.7rem; margin-left: 2px;"></i>
+              <i class="fas fa-external-link-alt" style="font-size: 0.68rem; margin-left: 3px; opacity: 0.7;"></i>
             </a>
           </td>
           <td>
-            <span class="card-category-badge" style="font-size: 0.72rem; padding: 2px 8px;">${escapeHtml(client.category)}</span>
+            <span class="card-category" style="font-size: 0.7rem; padding: 2px 8px;">
+              <i class="${catIcon}" style="font-size: 0.68rem;"></i>
+              ${escapeHtml(client.category)}
+            </span>
           </td>
           <td>
-            <span class="type-pill ${typeClass}">${typeLabel}</span>
+            <span class="card-type-tag ${typeClass}">${typeLabel}</span>
           </td>
           <td>
-            <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.82rem;">
+            <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-secondary);">
               <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
             </span>
           </td>
           <td>
-            <span class="status-pill ${statusClass}">
+            <span class="status-badge ${statusClass}">
               <span class="status-dot"></span> ${escapeHtml(client.status)}
             </span>
           </td>
-          <td>
-            <div class="table-actions">
-              <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary table-btn" title="Visit Website">
+          <td style="text-align: right;">
+            <div class="table-actions" style="justify-content: flex-end;">
+              <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary table-action-btn" title="Open Website">
                 Visit ↗
               </a>
-              <button type="button" class="btn table-btn" data-copy="${escapeHtml(client.domain)}" title="Copy Domain">
+              <button type="button" class="btn table-action-btn" data-copy="${escapeHtml(client.domain)}" title="Copy Domain">
                 <i class="far fa-copy"></i>
               </button>
             </div>
@@ -329,23 +353,22 @@
     attachCopyHandlers(elements.tableBody);
   }
 
-  // Attach Copy Buttons
+  // Copy Handlers with Visual Feedback
   function attachCopyHandlers(container) {
     container.querySelectorAll('[data-copy]').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const textToCopy = btn.getAttribute('data-copy');
-        copyToClipboard(textToCopy);
+        const text = btn.getAttribute('data-copy');
+        copyToClipboard(text);
       });
     });
   }
 
-  // Copy to Clipboard
   function copyToClipboard(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
       navigator.clipboard.writeText(text).then(() => {
-        showToast(`Copied to clipboard: "${text}"`);
+        showToast(`Copied "${text}" to clipboard!`);
       }).catch(() => {
         fallbackCopy(text);
       });
@@ -361,25 +384,24 @@
     input.select();
     try {
       document.execCommand('copy');
-      showToast(`Copied to clipboard: "${text}"`);
+      showToast(`Copied "${text}" to clipboard!`);
     } catch (err) {
-      showToast(`Failed to copy: "${text}"`, 'error');
+      showToast(`Failed to copy: ${text}`, 'error');
     }
     document.body.removeChild(input);
   }
 
-  // Toast System
+  // Toast Notification
   function showToast(message, type = 'success') {
     if (!elements.toastContainer) return;
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    const iconClass = type === 'success' ? 'fas fa-check-circle toast-icon' : 'fas fa-exclamation-circle toast-icon';
-    toast.innerHTML = `<i class="${iconClass}"></i><span>${escapeHtml(message)}</span>`;
+    const icon = type === 'success' ? 'fas fa-check-circle toast-icon' : 'fas fa-exclamation-circle toast-icon';
+    toast.innerHTML = `<i class="${icon}"></i><span>${escapeHtml(message)}</span>`;
 
     elements.toastContainer.appendChild(toast);
 
-    // Trigger animation
     requestAnimationFrame(() => {
       toast.classList.add('show');
     });
@@ -388,31 +410,31 @@
       toast.classList.remove('show');
       setTimeout(() => {
         if (toast.parentNode) toast.parentNode.removeChild(toast);
-      }, 300);
-    }, 2800);
+      }, 250);
+    }, 2400);
   }
 
-  // Update Results Bar Summary
+  // Update Result Count Text & Reset Link
   function updateResultsSummary() {
     const total = state.clients.length;
-    const current = state.filteredClients.length;
+    const count = state.filteredClients.length;
 
     if (elements.resultsCount) {
-      elements.resultsCount.innerHTML = `Showing <span class="results-count-number">${current}</span> of ${total} clients`;
+      elements.resultsCount.innerHTML = `Showing <span class="results-count-highlight">${count}</span> of ${total} clients`;
     }
 
-    const hasFilters = state.searchQuery ||
+    const hasActiveFilters = state.searchQuery ||
       state.selectedCategory !== 'All' ||
       state.selectedDomainType !== 'all' ||
       state.selectedPlatform !== 'all' ||
       state.selectedStatus !== 'all';
 
     if (elements.resetAllBtn) {
-      elements.resetAllBtn.style.display = hasFilters ? 'inline-block' : 'none';
+      elements.resetAllBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
     }
   }
 
-  // Switch View Mode (Grid vs Table)
+  // View Switching
   function applyViewMode(mode) {
     state.viewMode = mode;
     localStorage.setItem('wb_view_mode', mode);
@@ -423,12 +445,11 @@
     renderClients();
   }
 
-  // Export Filtered Clients to CSV
+  // Export to CSV
   function exportToCSV() {
-    const dataToExport = state.filteredClients.length > 0 ? state.filteredClients : state.clients;
-
-    const headers = ['ID', 'Client Name', 'Domain', 'Website URL', 'Category', 'Domain Type', 'Platform', 'Status', 'Tags'];
-    const rows = dataToExport.map(c => [
+    const list = state.filteredClients.length > 0 ? state.filteredClients : state.clients;
+    const headers = ['ID', 'Client Name', 'Website Domain', 'Direct URL', 'Category', 'Domain Type', 'Platform', 'Status'];
+    const rows = list.map(c => [
       c.id,
       `"${c.name.replace(/"/g, '""')}"`,
       `"${c.domain}"`,
@@ -436,23 +457,22 @@
       `"${c.category.replace(/"/g, '""')}"`,
       `"${c.type}"`,
       `"${c.platform}"`,
-      `"${c.status}"`,
-      `"${(c.tags || []).join(', ')}"`
+      `"${c.status}"`
     ]);
 
     const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\r\n');
     const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
-    link.setAttribute('href', url);
-    link.setAttribute('download', `Agency_Clients_Directory_${new Date().toISOString().slice(0, 10)}.csv`);
+    link.href = url;
+    link.download = `Agency_Clients_${new Date().toISOString().slice(0, 10)}.csv`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    showToast(`Exported ${dataToExport.length} clients to CSV`);
+    showToast(`Exported ${list.length} clients to CSV`);
   }
 
-  // Theme Switching
+  // Theme Management
   function applyTheme(theme) {
     state.theme = theme;
     document.documentElement.setAttribute('data-theme', theme);
@@ -467,11 +487,10 @@
   }
 
   function toggleTheme() {
-    const nextTheme = state.theme === 'light' ? 'dark' : 'light';
-    applyTheme(nextTheme);
+    applyTheme(state.theme === 'light' ? 'dark' : 'light');
   }
 
-  // Event Listeners
+  // Setup Event Listeners
   function setupEventListeners() {
     // Search input
     if (elements.searchInput) {
@@ -483,7 +502,6 @@
         applyFilters();
       });
 
-      // Clear search
       if (elements.clearSearchBtn) {
         elements.clearSearchBtn.addEventListener('click', () => {
           elements.searchInput.value = '';
@@ -495,27 +513,31 @@
       }
     }
 
-    // Keyboard shortcut: Press "/" to focus search
+    // Keyboard Shortcuts: "/" focuses search, "Esc" blurs
     window.addEventListener('keydown', (e) => {
       if (e.key === '/' && document.activeElement !== elements.searchInput) {
         e.preventDefault();
-        if (elements.searchInput) {
-          elements.searchInput.focus();
-        }
+        if (elements.searchInput) elements.searchInput.focus();
       }
       if (e.key === 'Escape' && document.activeElement === elements.searchInput) {
         elements.searchInput.blur();
       }
     });
 
-    // Secondary Filter selects
-    if (elements.filterDomainType) {
-      elements.filterDomainType.addEventListener('change', (e) => {
-        state.selectedDomainType = e.target.value;
-        applyFilters();
+    // Domain Segmented Tabs (All / Custom / Subdomain)
+    if (elements.domainTabs) {
+      elements.domainTabs.querySelectorAll('.domain-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const type = btn.getAttribute('data-type');
+          state.selectedDomainType = type;
+          elements.domainTabs.querySelectorAll('.domain-tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          applyFilters();
+        });
       });
     }
 
+    // Platform Filter
     if (elements.filterPlatform) {
       elements.filterPlatform.addEventListener('change', (e) => {
         state.selectedPlatform = e.target.value;
@@ -523,6 +545,7 @@
       });
     }
 
+    // Status Filter
     if (elements.filterStatus) {
       elements.filterStatus.addEventListener('change', (e) => {
         state.selectedStatus = e.target.value;
@@ -530,7 +553,7 @@
       });
     }
 
-    // Sort select
+    // Sort Dropdown
     if (elements.sortBySelect) {
       elements.sortBySelect.addEventListener('change', (e) => {
         state.sortBy = e.target.value;
@@ -538,7 +561,7 @@
       });
     }
 
-    // View mode buttons
+    // View Toggles
     if (elements.gridViewBtn) {
       elements.gridViewBtn.addEventListener('click', () => applyViewMode('grid'));
     }
@@ -546,7 +569,7 @@
       elements.tableViewBtn.addEventListener('click', () => applyViewMode('table'));
     }
 
-    // Reset buttons
+    // Reset Buttons
     if (elements.resetAllBtn) {
       elements.resetAllBtn.addEventListener('click', resetAllFilters);
     }
@@ -554,18 +577,18 @@
       elements.resetEmptyBtn.addEventListener('click', resetAllFilters);
     }
 
-    // Export to CSV
+    // Export CSV
     if (elements.exportCsvBtn) {
       elements.exportCsvBtn.addEventListener('click', exportToCSV);
     }
 
-    // Theme toggle
+    // Theme Switch
     if (elements.themeToggleBtn) {
       elements.themeToggleBtn.addEventListener('click', toggleTheme);
     }
   }
 
-  // Reset all filters to default
+  // Reset Filters to Default
   function resetAllFilters() {
     state.searchQuery = '';
     state.selectedCategory = 'All';
@@ -576,10 +599,15 @@
 
     if (elements.searchInput) elements.searchInput.value = '';
     if (elements.clearSearchBtn) elements.clearSearchBtn.style.display = 'none';
-    if (elements.filterDomainType) elements.filterDomainType.value = 'all';
     if (elements.filterPlatform) elements.filterPlatform.value = 'all';
     if (elements.filterStatus) elements.filterStatus.value = 'all';
     if (elements.sortBySelect) elements.sortBySelect.value = 'name-asc';
+
+    if (elements.domainTabs) {
+      elements.domainTabs.querySelectorAll('.domain-tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-type') === 'all');
+      });
+    }
 
     if (elements.categoryChipsContainer) {
       elements.categoryChipsContainer.querySelectorAll('.chip-btn').forEach(btn => {
@@ -588,10 +616,10 @@
     }
 
     applyFilters();
-    showToast('Filters reset');
+    showToast('Filters reset to show all clients');
   }
 
-  // Helpers
+  // Helper Functions
   function getStatusClass(status) {
     switch (status) {
       case 'Active':
@@ -609,9 +637,9 @@
     }
   }
 
-  function escapeHtml(string) {
-    if (!string) return '';
-    return String(string)
+  function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')
@@ -619,7 +647,7 @@
       .replace(/'/g, '&#039;');
   }
 
-  // Boot on DOM Ready
+  // Initialize on DOM Ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

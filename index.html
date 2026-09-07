@@ -3,44 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Official Client Directory & Domain Portal for Sales Team - Search, filter, and explore client websites by industry category.">
-  <title>Agency Client Directory &amp; Domain Portal | Sales Hub</title>
+  <meta name="description" content="Sales Team Client Directory & Live Website Portal. Search, filter, and access all agency client websites by business category.">
+  <title>Sales Hub &bull; Agency Client Websites Directory</title>
   
-  <!-- Modern Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <!-- Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   
-  <!-- FontAwesome Icons for Visual Polish -->
+  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   
-  <!-- Stylesheet -->
+  <!-- Custom Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Sticky Top Header -->
+  <!-- Top Sticky Navigation Header -->
   <header class="site-header" id="siteHeader">
     <div class="container">
       <div class="header-inner">
         <div class="brand-group">
           <div class="brand-icon" aria-hidden="true">
-            <i class="fas fa-network-wired"></i>
+            <i class="fas fa-layer-group"></i>
           </div>
           <div>
             <h1 class="brand-title">
-              Client Directory <span class="brand-badge">Sales Portal</span>
+              Client Directory <span class="brand-badge">Sales Hub</span>
             </h1>
-            <p class="brand-subtitle">Agency Website Clients &amp; Live Domains Database</p>
+            <p class="brand-subtitle">Agency website clients, business categories &amp; live domains</p>
           </div>
         </div>
 
         <div class="header-actions">
-          <button type="button" class="btn btn-export" id="exportCsvBtn" title="Export client directory to CSV file">
-            <i class="fas fa-file-csv"></i>
+          <button type="button" class="btn btn-export" id="exportCsvBtn" title="Download Excel-compatible CSV of clients">
+            <i class="fas fa-download"></i>
             <span>Export CSV</span>
           </button>
-          <button type="button" class="btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark/light theme" title="Toggle theme">
+          <button type="button" class="btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark and light theme" title="Toggle theme">
             <i class="fas fa-sun"></i>
           </button>
         </div>
@@ -49,184 +49,173 @@
   </header>
 
   <main class="container">
-    <!-- Hero / KPI Overview -->
-    <section class="hero-section" id="heroSection" aria-label="Sales Overview Statistics">
-      <div class="hero-content">
-        <h2 class="hero-title">Explore Clients by Business Category</h2>
-        <p class="hero-desc">
-          Browse verified client websites, access live domains directly, and filter by industry, platform, and hosting status to support client outreach and sales discovery.
-        </p>
+    <!-- Compact KPI Ribbon -->
+    <section class="kpi-strip" id="kpiStrip" aria-label="Directory Overview Statistics">
+      <div class="kpi-item">
+        <div class="kpi-icon"><i class="fas fa-users"></i></div>
+        <div>
+          <div class="kpi-num" id="totalClientsCount">72</div>
+          <div class="kpi-label">Total Clients</div>
+        </div>
       </div>
 
-      <!-- KPI Summary Cards -->
-      <div class="stats-grid" id="statsGrid">
-        <div class="stat-card">
-          <div class="stat-icon-wrap" aria-hidden="true">
-            <i class="fas fa-briefcase"></i>
-          </div>
-          <div>
-            <div class="stat-val" id="totalClientsCount">72</div>
-            <div class="stat-label">Total Clients</div>
-          </div>
+      <div class="kpi-item">
+        <div class="kpi-icon"><i class="fas fa-globe"></i></div>
+        <div>
+          <div class="kpi-num" id="customDomainsCount">50</div>
+          <div class="kpi-label">Custom Domains</div>
         </div>
+      </div>
 
-        <div class="stat-card">
-          <div class="stat-icon-wrap" aria-hidden="true">
-            <i class="fas fa-globe"></i>
-          </div>
-          <div>
-            <div class="stat-val" id="customDomainsCount">50</div>
-            <div class="stat-label">Custom Domains</div>
-          </div>
+      <div class="kpi-item">
+        <div class="kpi-icon"><i class="fas fa-code-branch"></i></div>
+        <div>
+          <div class="kpi-num" id="subdomainsCount">22</div>
+          <div class="kpi-label">Staging Subdomains</div>
         </div>
+      </div>
 
-        <div class="stat-card">
-          <div class="stat-icon-wrap" aria-hidden="true">
-            <i class="fas fa-code-branch"></i>
-          </div>
-          <div>
-            <div class="stat-val" id="subdomainsCount">22</div>
-            <div class="stat-label">Staging Subdomains</div>
-          </div>
+      <div class="kpi-item">
+        <div class="kpi-icon"><i class="fas fa-tags"></i></div>
+        <div>
+          <div class="kpi-num" id="categoriesCount">15</div>
+          <div class="kpi-label">Industries</div>
         </div>
+      </div>
 
-        <div class="stat-card">
-          <div class="stat-icon-wrap" aria-hidden="true">
-            <i class="fas fa-tags"></i>
-          </div>
-          <div>
-            <div class="stat-val" id="categoriesCount">15</div>
-            <div class="stat-label">Industry Categories</div>
-          </div>
-        </div>
-
-        <div class="stat-card">
-          <div class="stat-icon-wrap" aria-hidden="true">
-            <i class="fas fa-check-double"></i>
-          </div>
-          <div>
-            <div class="stat-val" id="activeSitesCount">58</div>
-            <div class="stat-label">Active / Live Sites</div>
-          </div>
+      <div class="kpi-item">
+        <div class="kpi-icon"><i class="fas fa-check-circle"></i></div>
+        <div>
+          <div class="kpi-num" id="activeSitesCount">58</div>
+          <div class="kpi-label">Live Websites</div>
         </div>
       </div>
     </section>
 
-    <!-- Toolbar: Search, Filters & Category Chips -->
-    <section class="toolbar-section" id="toolbarSection" aria-label="Search and Filter Controls">
-      <!-- Search Row & Secondary Selects -->
-      <div class="search-row">
-        <div class="search-input-wrapper">
+    <!-- Control Hub: Search & Quick Tab Filters -->
+    <section class="control-hub" id="controlHub" aria-label="Search and Filter Controls">
+      <!-- Search and Domain Tabs in one row -->
+      <div class="search-and-tabs-row">
+        <div class="search-box-wrap">
           <i class="fas fa-search search-icon" aria-hidden="true"></i>
           <input 
             type="text" 
             id="searchInput" 
-            class="search-input" 
-            placeholder="Search clients by name, domain, category, or keyword..." 
+            class="main-search-input" 
+            placeholder="Search by client name, domain (e.g. .ae, .com), category, or keyword..." 
             autocomplete="off"
             spellcheck="false"
             aria-label="Search clients"
           >
-          <span class="search-shortcut-hint" title="Press / to focus">/</span>
-          <button type="button" class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search input">
+          <span class="search-key-hint" title="Press / to search">/</span>
+          <button type="button" class="clear-search-btn" id="clearSearchBtn" aria-label="Clear search">
             <i class="fas fa-times"></i>
           </button>
         </div>
 
-        <!-- Secondary Filter Dropdowns -->
-        <div class="filter-dropdowns">
-          <div class="filter-select-group">
-            <label for="filterDomainType" class="filter-select-label">Domain:</label>
-            <select id="filterDomainType" class="filter-select" aria-label="Filter by domain type">
-              <option value="all">All Domains</option>
-              <option value="custom">Custom Domains (.com/.ae)</option>
-              <option value="subdomain">Staging Subdomains</option>
-            </select>
-          </div>
+        <!-- Segmented Domain Tabs: 1-Click filter -->
+        <div class="domain-tabs" id="domainTabs" role="tablist" aria-label="Filter by domain type">
+          <button type="button" class="domain-tab-btn active" data-type="all">
+            <span>All Domains</span>
+            <span class="tab-badge" id="tabBadgeAll">72</span>
+          </button>
+          <button type="button" class="domain-tab-btn" data-type="custom">
+            <i class="fas fa-globe" style="font-size: 0.75rem;"></i>
+            <span>Custom (.com/.ae)</span>
+            <span class="tab-badge" id="tabBadgeCustom">50</span>
+          </button>
+          <button type="button" class="domain-tab-btn" data-type="subdomain">
+            <i class="fas fa-code-branch" style="font-size: 0.75rem;"></i>
+            <span>Staging Subdomains</span>
+            <span class="tab-badge" id="tabBadgeSub">22</span>
+          </button>
+        </div>
+      </div>
 
-          <div class="filter-select-group">
-            <label for="filterPlatform" class="filter-select-label">Platform:</label>
-            <select id="filterPlatform" class="filter-select" aria-label="Filter by website platform">
+      <!-- Secondary Controls: Platform, Status & Sorting -->
+      <div class="secondary-controls-row">
+        <div class="quick-selects">
+          <div class="control-item">
+            <label for="filterPlatform" class="control-label">Platform:</label>
+            <select id="filterPlatform" class="control-select">
               <option value="all">All Platforms</option>
               <option value="WordPress">WordPress</option>
               <option value="HTML / Web App">Custom HTML / App</option>
             </select>
           </div>
 
-          <div class="filter-select-group">
-            <label for="filterStatus" class="filter-select-label">Status:</label>
-            <select id="filterStatus" class="filter-select" aria-label="Filter by hosting status">
+          <div class="control-item">
+            <label for="filterStatus" class="control-label">Status:</label>
+            <select id="filterStatus" class="control-select">
               <option value="all">All Statuses</option>
               <option value="Active">Active / Live</option>
               <option value="Pending Setup">Pending Setup</option>
-              <option value="Domain Pending Purchase">Domain Purchase Pending</option>
+              <option value="Domain Pending Purchase">Purchase Pending</option>
               <option value="Needs Attention">Needs Attention</option>
             </select>
           </div>
-
-          <div class="filter-select-group">
-            <label for="sortBySelect" class="filter-select-label">Sort:</label>
-            <select id="sortBySelect" class="filter-select" aria-label="Sort client list">
-              <option value="name-asc">Name (A &rarr; Z)</option>
-              <option value="name-desc">Name (Z &rarr; A)</option>
-              <option value="category-asc">Category (A &rarr; Z)</option>
-              <option value="domain-asc">Domain (A &rarr; Z)</option>
-              <option value="status-asc">Status</option>
-            </select>
-          </div>
         </div>
-      </div>
 
-      <!-- Business Category Chips -->
-      <div class="categories-wrapper">
-        <div class="categories-header">
-          <span class="categories-title">Filter by Business Category:</span>
-        </div>
-        <div class="category-chips-list" id="categoryChipsContainer">
-          <!-- Dynamic category chips will be injected here -->
+        <div class="control-item">
+          <label for="sortBySelect" class="control-label">Sort By:</label>
+          <select id="sortBySelect" class="control-select">
+            <option value="name-asc">Client Name (A &rarr; Z)</option>
+            <option value="name-desc">Client Name (Z &rarr; A)</option>
+            <option value="category-asc">Category (A &rarr; Z)</option>
+            <option value="domain-asc">Domain (A &rarr; Z)</option>
+            <option value="status-asc">Status</option>
+          </select>
         </div>
       </div>
     </section>
 
-    <!-- Results Header / Controls -->
-    <section class="results-bar" aria-label="Results and Display Controls">
-      <div class="results-count-text" id="resultsCount">
-        Showing <span class="results-count-number">72</span> clients
-        <button type="button" class="reset-all-btn" id="resetAllBtn" style="display: none;">
-          Clear filters
+    <!-- Industry Category Filter Chips -->
+    <section class="category-section" aria-label="Filter by Industry Category">
+      <div class="category-bar-header">
+        <span class="category-bar-title">Filter by Business Category:</span>
+      </div>
+      <div class="category-chips-list" id="categoryChipsContainer">
+        <!-- Dynamic category chips with icons injected via JS -->
+      </div>
+    </section>
+
+    <!-- Results Toolbar & View Mode Switcher -->
+    <section class="results-summary-bar" aria-label="Results count and view switcher">
+      <div class="results-count-display" id="resultsCount">
+        Showing <span class="results-count-highlight">72</span> clients
+        <button type="button" class="reset-filters-link" id="resetAllBtn" style="display: none;">
+          Reset filters
         </button>
       </div>
 
-      <!-- View Switcher -->
-      <div class="view-controls">
-        <button type="button" class="view-btn active" id="gridViewBtn" title="Grid Card View" aria-label="Grid view">
+      <div class="view-mode-toggle">
+        <button type="button" class="view-btn active" id="gridViewBtn" title="Grid View" aria-label="Switch to grid view">
           <i class="fas fa-th-large"></i>
         </button>
-        <button type="button" class="view-btn" id="tableViewBtn" title="Dense Table View" aria-label="Table view">
+        <button type="button" class="view-btn" id="tableViewBtn" title="Table View" aria-label="Switch to table view">
           <i class="fas fa-list"></i>
         </button>
       </div>
     </section>
 
-    <!-- Main Results Views -->
-    <!-- 1. Grid Cards View -->
-    <section class="clients-grid" id="gridContainer" aria-label="Client Cards Grid">
+    <!-- View 1: Card Grid View -->
+    <section class="clients-grid" id="gridContainer" aria-label="Clients grid">
       <!-- Injected via JavaScript -->
     </section>
 
-    <!-- 2. Dense Table View -->
-    <div class="clients-table-wrapper" id="tableContainer" style="display: none;">
-      <table class="clients-table" aria-label="Client Directory Table">
+    <!-- View 2: Dense Table View -->
+    <div class="table-wrapper" id="tableContainer" style="display: none;">
+      <table class="clients-table" aria-label="Clients directory table">
         <thead>
           <tr>
-            <th style="width: 50px;">#</th>
+            <th style="width: 48px;">#</th>
             <th>Client Name</th>
-            <th>Domain &amp; Link</th>
+            <th>Website Domain</th>
             <th>Business Category</th>
             <th>Domain Type</th>
             <th>Platform</th>
             <th>Status</th>
-            <th style="text-align: right;">Quick Actions</th>
+            <th style="text-align: right; width: 140px;">Action</th>
           </tr>
         </thead>
         <tbody id="tableBody">
@@ -238,15 +227,15 @@
     <!-- Empty State -->
     <div class="empty-state" id="emptyState" style="display: none;">
       <div class="empty-icon" aria-hidden="true">
-        <i class="fas fa-search-minus"></i>
+        <i class="fas fa-search"></i>
       </div>
-      <h3 class="empty-title">No Clients Found</h3>
+      <h3 class="empty-title">No Matching Clients Found</h3>
       <p class="empty-desc">
-        We couldn't find any clients matching your selected filters or search query. Try broadening your keywords or reset all filters.
+        Try typing a different keyword or click the reset button below to view all 72 clients.
       </p>
       <button type="button" class="btn btn-primary" id="resetEmptyBtn">
         <i class="fas fa-undo"></i>
-        <span>Reset All Filters</span>
+        <span>Show All Clients</span>
       </button>
     </div>
   </main>
@@ -257,8 +246,8 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; 2026 Agency Client Directory &bull; Sales &amp; Business Development Hub</p>
-      <p>Data synced from Hostinger Cloud Infrastructure</p>
+      <p>&copy; 2026 Agency Client Directory &bull; Sales &amp; Business Development Portal</p>
+      <p>Data synced from Hostinger Infrastructure</p>
     </div>
   </footer>
 
