@@ -6,7 +6,8 @@ An interactive, high-performance web dashboard built for agency sales and busine
 
 ## 🔗 Live Link
 
-* **Deployed URL**: *(Deployment in progress / Host on GitHub Pages / Vercel / Netlify)*
+* **Live Deployment**: [wb-clients-list.vercel.app](https://wb-clients-list.vercel.app)
+* **GitHub Repository**: [github.com/favazmk/WB-Clients-List](https://github.com/favazmk/WB-Clients-List)
 * **Local Preview**: `http://localhost:8085`
 
 ---

@@ -31,3 +31,6 @@ tmp/
 ~$*
 __pycache__/
 *.pyc
+.vercel/
+
+.vercel
