@@ -7,7 +7,7 @@ def create_pm_verification_sheet():
     script_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(script_dir)
     data_file = os.path.join(script_dir, 'clients_data.json')
-    excel_path = os.path.join(project_root, 'Client_Categories_Verification_Sheet.xlsx')
+    excel_path = os.path.join(project_root, 'Client_Category_Verification.xlsx')
 
     # Load clients data
     with open(data_file, 'r', encoding='utf-8') as f:
@@ -16,15 +16,16 @@ def create_pm_verification_sheet():
     workbook = xlsxwriter.Workbook(excel_path)
 
     # -------------------------------------------------------------
-    # Formats & Styles
+    # Styling & Formats (Modern, Professional, Clean)
     # -------------------------------------------------------------
     font_family = 'Segoe UI'
 
+    # Title & Subtitle Formats
     title_fmt = workbook.add_format({
         'font_name': font_family,
-        'font_size': 16,
+        'font_size': 15,
         'bold': True,
-        'font_color': '#1e293b',
+        'font_color': '#0f172a',
         'valign': 'vcenter'
     })
 
@@ -35,32 +36,15 @@ def create_pm_verification_sheet():
         'valign': 'vcenter'
     })
 
-    # KPI Summary Cards Formats
-    kpi_card_fmt = workbook.add_format({
+    instruction_fmt = workbook.add_format({
         'font_name': font_family,
-        'font_size': 9,
+        'font_size': 9.5,
         'bold': True,
-        'font_color': '#475569',
-        'bg_color': '#f8fafc',
-        'border': 1,
-        'border_color': '#cbd5e1',
-        'align': 'center',
+        'font_color': '#4f46e5',
         'valign': 'vcenter'
     })
 
-    kpi_val_fmt = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 13,
-        'bold': True,
-        'font_color': '#0f172a',
-        'bg_color': '#f8fafc',
-        'border': 1,
-        'border_color': '#cbd5e1',
-        'align': 'center',
-        'valign': 'vcenter'
-    })
-
-    # Table Header Format
+    # Header Formats
     th_fmt = workbook.add_format({
         'font_name': font_family,
         'font_size': 10,
@@ -70,8 +54,7 @@ def create_pm_verification_sheet():
         'border': 1,
         'border_color': '#0f172a',
         'align': 'left',
-        'valign': 'vcenter',
-        'text_wrap': True
+        'valign': 'vcenter'
     })
 
     th_center_fmt = workbook.add_format({
@@ -86,8 +69,8 @@ def create_pm_verification_sheet():
         'valign': 'vcenter'
     })
 
-    # Action required header (Highlighted)
-    th_highlight_fmt = workbook.add_format({
+    # Action Column Header (Highlighted Indigo)
+    th_action_fmt = workbook.add_format({
         'font_name': font_family,
         'font_size': 10,
         'bold': True,
@@ -99,164 +82,124 @@ def create_pm_verification_sheet():
         'valign': 'vcenter'
     })
 
-    # Row Data Formats
-    cell_fmt = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 9.5,
-        'border': 1,
-        'border_color': '#e2e8f0',
-        'valign': 'vcenter'
-    })
-
-    cell_bold_fmt = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 9.5,
-        'bold': True,
-        'color': '#0f172a',
-        'border': 1,
-        'border_color': '#e2e8f0',
-        'valign': 'vcenter'
-    })
-
-    cell_center_fmt = workbook.add_format({
+    # Cell Data Formats
+    cell_num_fmt = workbook.add_format({
         'font_name': font_family,
         'font_size': 9.5,
         'align': 'center',
+        'valign': 'vcenter',
         'border': 1,
         'border_color': '#e2e8f0',
-        'valign': 'vcenter'
+        'font_color': '#64748b'
     })
 
-    link_fmt = workbook.add_format({
+    cell_link_fmt = workbook.add_format({
         'font_name': font_family,
         'font_size': 9.5,
-        'color': '#2563eb',
+        'font_color': '#2563eb',
         'underline': True,
+        'valign': 'vcenter',
         'border': 1,
-        'border_color': '#e2e8f0',
-        'valign': 'vcenter'
+        'border_color': '#e2e8f0'
     })
 
-    category_fmt = workbook.add_format({
+    cell_category_fmt = workbook.add_format({
         'font_name': font_family,
         'font_size': 9.5,
-        'color': '#334155',
+        'font_color': '#1e293b',
         'bg_color': '#f8fafc',
+        'valign': 'vcenter',
         'border': 1,
-        'border_color': '#e2e8f0',
-        'valign': 'vcenter'
+        'border_color': '#e2e8f0'
     })
 
-    dropdown_cell_fmt = workbook.add_format({
+    cell_dropdown_fmt = workbook.add_format({
         'font_name': font_family,
         'font_size': 9.5,
+        'valign': 'vcenter',
         'border': 1,
         'border_color': '#cbd5e1',
-        'bg_color': '#ffffff',
-        'valign': 'vcenter'
-    })
-
-    status_dropdown_fmt = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 9.5,
-        'align': 'center',
-        'border': 1,
-        'border_color': '#cbd5e1',
-        'bg_color': '#fffbeb',
-        'font_color': '#b45309',
-        'valign': 'vcenter'
+        'bg_color': '#ffffff'
     })
 
     # -------------------------------------------------------------
-    # Sheet 1: Client Verification
+    # Sheet 1: Category Verification (Main 4-Column Sheet)
     # -------------------------------------------------------------
-    ws_main = workbook.add_worksheet('Client Verification')
+    ws_main = workbook.add_worksheet('Category Verification')
     ws_main.set_tab_color('#4f46e5')
     ws_main.hide_gridlines(0)
 
-    # Title & Subtitle
-    ws_main.set_row(0, 26)
+    # Title & Instructions block
+    ws_main.set_row(0, 24)
     ws_main.set_row(1, 18)
-    ws_main.write('A1', 'Agency Website Client Directory — Category Verification Sheet', title_fmt)
-    ws_main.write('A2', 'For Project Manager: Review assigned categories below. If correct, keep/mark "Approved". If incorrect, set "Needs Correction" and choose the right category in column F.', subtitle_fmt)
+    ws_main.set_row(2, 18)
+    ws_main.write('A1', 'Agency Website Clients — Category Verification', title_fmt)
+    ws_main.write('A2', 'Total Clients: 72  |  Click any domain to view the live website if needed.', subtitle_fmt)
+    ws_main.write('A3', '👉 Review Column C: If the category is correct, leave Column D blank. If wrong, choose the correct one from the dropdown in Column D.', instruction_fmt)
 
-    # KPI Summary Row
-    ws_main.set_row(3, 16)
-    ws_main.set_row(4, 22)
-    ws_main.write('B4', 'Total Clients', kpi_card_fmt)
-    ws_main.write('B5', len(clients), kpi_val_fmt)
-
-    ws_main.write('D4', 'Pending Review', kpi_card_fmt)
-    ws_main.write_formula('D5', '=COUNTIF(E7:E78, "Pending Review")', kpi_val_fmt)
-
-    ws_main.write('E4', 'Approved', kpi_card_fmt)
-    ws_main.write_formula('E5', '=COUNTIF(E7:E78, "Approved")', kpi_val_fmt)
-
-    ws_main.write('F4', 'Needs Correction', kpi_card_fmt)
-    ws_main.write_formula('F5', '=COUNTIF(E7:E78, "Needs Correction")', kpi_val_fmt)
-
-    # Table Column Headers (Row 6, index 5)
-    headers = [
-        ('#', 5, th_center_fmt),
-        ('Client Name', 24, th_fmt),
-        ('Website Domain (Clickable)', 32, th_fmt),
-        ('Current Assigned Category', 32, th_fmt),
-        ('PM Verification Status ▼', 22, th_highlight_fmt),
-        ('Corrected Category (Dropdown) ▼', 34, th_highlight_fmt),
-        ('PM Notes / Instructions', 32, th_fmt),
-        ('Domain Type', 16, th_center_fmt),
-        ('Platform', 16, th_center_fmt),
-        ('Hosting Status', 22, th_center_fmt)
-    ]
-
-    header_row = 5
+    # 4 Table Columns (Row index 4 = Excel Row 5)
+    header_row = 4
     ws_main.set_row(header_row, 28)
 
-    for col_idx, (header_text, width, fmt) in enumerate(headers):
-        ws_main.write(header_row, col_idx, header_text, fmt)
+    headers = [
+        ('#', 6, th_center_fmt),
+        ('Domain', 34, th_fmt),
+        ('Current Assigned Category', 34, th_fmt),
+        ('Correct Category (Select If Wrong) ▼', 36, th_action_fmt)
+    ]
+
+    for col_idx, (text, width, fmt) in enumerate(headers):
+        ws_main.write(header_row, col_idx, text, fmt)
         ws_main.set_column(col_idx, col_idx, width)
 
-    # Populate Data
-    start_row = 6
+    # Data Rows
+    start_row = 5
     end_row = start_row + len(clients) - 1
 
     for i, client in enumerate(clients):
         row = start_row + i
-        ws_main.set_row(row, 21)
+        ws_main.set_row(row, 22)
 
-        # Col 0: #
-        ws_main.write(row, 0, i + 1, cell_center_fmt)
+        # 1. #
+        ws_main.write(row, 0, i + 1, cell_num_fmt)
 
-        # Col 1: Client Name
-        ws_main.write(row, 1, client['name'], cell_bold_fmt)
+        # 2. Domain (Clickable Link)
+        ws_main.write_url(row, 1, client['url'], cell_link_fmt, client['domain'])
 
-        # Col 2: Website Domain (Clickable URL)
-        ws_main.write_url(row, 2, client['url'], link_fmt, client['domain'])
+        # 3. Current Assigned Category
+        ws_main.write(row, 2, client['category'], cell_category_fmt)
 
-        # Col 3: Current Category
-        ws_main.write(row, 3, client['category'], category_fmt)
+        # 4. Correct Category (Dropdown - blank by default)
+        ws_main.write(row, 3, '', cell_dropdown_fmt)
 
-        # Col 4: PM Status (Default: Pending Review)
-        ws_main.write(row, 4, 'Pending Review', status_dropdown_fmt)
+    # Freeze panes so header row 5 stays visible on scroll
+    ws_main.freeze_panes(header_row + 1, 0)
 
-        # Col 5: Corrected Category (Blank by default)
-        ws_main.write(row, 5, '', dropdown_cell_fmt)
+    # Data Validation (Dropdown on Column D, rows 6 to 77)
+    ws_main.data_validation(start_row, 3, end_row, 3, {
+        'validate': 'list',
+        'source': '=Categories!$A$2:$A$16',
+        'input_title': 'Select Correct Category',
+        'input_message': 'Pick the correct category here only if the current category in Column C is wrong.',
+        'error_title': 'Invalid Category',
+        'error_message': 'Please select a valid category from the dropdown.'
+    })
 
-        # Col 6: PM Notes
-        ws_main.write(row, 6, '', cell_fmt)
-
-        # Col 7: Domain Type
-        domain_label = 'Custom Domain' if client['type'] == 'custom' else 'Staging Subdomain'
-        ws_main.write(row, 7, domain_label, cell_center_fmt)
-
-        # Col 8: Platform
-        ws_main.write(row, 8, client['platform'], cell_center_fmt)
-
-        # Col 9: Status
-        ws_main.write(row, 9, client['status'], cell_center_fmt)
+    # Conditional Formatting: Highlight in soft purple when the PM makes a correction!
+    fmt_changed = workbook.add_format({
+        'bg_color': '#ede9fe',
+        'font_color': '#6d28d9',
+        'bold': True,
+        'border': 1,
+        'border_color': '#8b5cf6'
+    })
+    ws_main.conditional_format(start_row, 3, end_row, 3, {
+        'type': 'no_blanks',
+        'format': fmt_changed
+    })
 
     # -------------------------------------------------------------
-    # Sheet 2: Categories Master List (Lookup Sheet)
+    # Sheet 2: Categories (Master Category Reference for Dropdown)
     # -------------------------------------------------------------
     ws_cat = workbook.add_worksheet('Categories')
     ws_cat.set_tab_color('#059669')
@@ -287,148 +230,43 @@ def create_pm_verification_sheet():
         ('Real Estate & Interior Design', 'Property brokerages, interior design, architecture, luxury stays'),
         ('Technology & IT Solutions', 'IT support, software development, networking, security hardware'),
         ('Travel, Tourism & Hospitality', 'Tour operators, holiday packages, hostels, accommodations'),
-        ('Other (Specify in Notes)', 'New category not listed above — specify in Column G')
+        ('Other (Specify in Notes)', 'New category not listed above')
     ]
 
     ws_cat.set_row(0, 24)
-    ws_cat.write('A1', 'Category Name', cat_th_fmt)
-    ws_cat.write('B1', 'Category Scope & Examples', cat_th_fmt)
-    ws_cat.write('C1', 'Current Count', cat_th_fmt)
+    ws_cat.write('A1', 'Category Name (Dropdown List)', cat_th_fmt)
+    ws_cat.write('B1', 'Category Description & Examples', cat_th_fmt)
 
     ws_cat.set_column('A:A', 35)
-    ws_cat.set_column('B:B', 65)
-    ws_cat.set_column('C:C', 16)
+    ws_cat.set_column('B:B', 70)
+
+    cat_bold_fmt = workbook.add_format({
+        'font_name': font_family,
+        'font_size': 9.5,
+        'bold': True,
+        'font_color': '#0f172a',
+        'border': 1,
+        'border_color': '#e2e8f0',
+        'valign': 'vcenter'
+    })
+
+    cat_desc_fmt = workbook.add_format({
+        'font_name': font_family,
+        'font_size': 9.5,
+        'font_color': '#475569',
+        'border': 1,
+        'border_color': '#e2e8f0',
+        'valign': 'vcenter'
+    })
 
     for idx, (cat_name, cat_desc) in enumerate(categories_list):
         r = idx + 1
         ws_cat.set_row(r, 20)
-        ws_cat.write(r, 0, cat_name, cell_bold_fmt)
-        ws_cat.write(r, 1, cat_desc, cell_fmt)
-        # Count formula
-        ws_cat.write_formula(r, 2, f'=COUNTIF(\'Client Verification\'!D$7:D$78, "{cat_name}")', cell_center_fmt)
-
-    # -------------------------------------------------------------
-    # Data Validation Rules
-    # -------------------------------------------------------------
-    # 1. PM Status Dropdown (Column E, Col 4)
-    ws_main.data_validation(start_row, 4, end_row, 4, {
-        'validate': 'list',
-        'source': ['Approved', 'Needs Correction', 'Pending Review'],
-        'input_title': 'Verification Status',
-        'input_message': 'Choose "Approved" if category is accurate, or "Needs Correction" to change it.',
-        'error_title': 'Invalid Selection',
-        'error_message': 'Please select Approved, Needs Correction, or Pending Review.'
-    })
-
-    # 2. Corrected Category Dropdown (Column F, Col 5)
-    ws_main.data_validation(start_row, 5, end_row, 5, {
-        'validate': 'list',
-        'source': '=Categories!$A$2:$A$16',
-        'input_title': 'Select Category',
-        'input_message': 'Pick the correct category from the master list if Column D is incorrect.',
-        'error_title': 'Invalid Category',
-        'error_message': 'Please select a valid category from the dropdown.'
-    })
-
-    # -------------------------------------------------------------
-    # Conditional Formatting for Visual Clarity
-    # -------------------------------------------------------------
-    # Column E: Approved (Green)
-    fmt_approved = workbook.add_format({
-        'bg_color': '#dcfce7',
-        'font_color': '#15803d',
-        'bold': True
-    })
-    ws_main.conditional_format(start_row, 4, end_row, 4, {
-        'type': 'cell',
-        'criteria': '==',
-        'value': '"Approved"',
-        'format': fmt_approved
-    })
-
-    # Column E: Needs Correction (Red)
-    fmt_correction = workbook.add_format({
-        'bg_color': '#fee2e2',
-        'font_color': '#b91c1c',
-        'bold': True
-    })
-    ws_main.conditional_format(start_row, 4, end_row, 4, {
-        'type': 'cell',
-        'criteria': '==',
-        'value': '"Needs Correction"',
-        'format': fmt_correction
-    })
-
-    # Column E: Pending Review (Yellow)
-    fmt_pending = workbook.add_format({
-        'bg_color': '#fef3c7',
-        'font_color': '#b45309',
-        'bold': False
-    })
-    ws_main.conditional_format(start_row, 4, end_row, 4, {
-        'type': 'cell',
-        'criteria': '==',
-        'value': '"Pending Review"',
-        'format': fmt_pending
-    })
-
-    # Column F: Highlighted when filled
-    fmt_corrected_val = workbook.add_format({
-        'bg_color': '#ede9fe',
-        'font_color': '#6d28d9',
-        'bold': True
-    })
-    ws_main.conditional_format(start_row, 5, end_row, 5, {
-        'type': 'no_blanks',
-        'format': fmt_corrected_val
-    })
-
-    # Freeze panes at row 6 so header stays pinned while scrolling
-    ws_main.freeze_panes(6, 0)
-
-    # -------------------------------------------------------------
-    # Sheet 3: How to Use Guide
-    # -------------------------------------------------------------
-    ws_help = workbook.add_worksheet('Instructions for PM')
-    ws_help.set_tab_color('#3b82f6')
-    ws_help.hide_gridlines(0)
-
-    guide_title = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 14,
-        'bold': True,
-        'font_color': '#1e293b'
-    })
-    guide_head = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 11,
-        'bold': True,
-        'font_color': '#4f46e5'
-    })
-    guide_text = workbook.add_format({
-        'font_name': font_family,
-        'font_size': 10,
-        'font_color': '#334155'
-    })
-
-    ws_help.set_column('A:A', 80)
-    ws_help.write('A1', 'Project Manager Category Verification Guide', guide_title)
-    ws_help.write('A3', 'Purpose of this Document:', guide_head)
-    ws_help.write('A4', 'This workbook contains all 72 client websites extracted from the Hostinger hPanel. The sales portal categorizes each client to help the sales team prospect and explore sites by industry. Please verify each category.', guide_text)
-
-    ws_help.write('A6', 'Step-by-Step Instructions:', guide_head)
-    ws_help.write('A7', '1. Go to the "Client Verification" tab.', guide_text)
-    ws_help.write('A8', '2. Review the Client Name in Column B and the Current Assigned Category in Column D.', guide_text)
-    ws_help.write('A9', '3. You can click the Website Domain in Column C to open and inspect the live website.', guide_text)
-    ws_help.write('A10', '4. In Column E ("PM Verification Status"), click the dropdown arrow and select:', guide_text)
-    ws_help.write('A11', '    • "Approved" — If the assigned category is accurate.', guide_text)
-    ws_help.write('A12', '    • "Needs Correction" — If the category is incorrect or needs improvement.', guide_text)
-    ws_help.write('A13', '5. If you selected "Needs Correction", click the dropdown in Column F ("Corrected Category") and choose the right category.', guide_text)
-    ws_help.write('A14', '6. If you need a new category or want to add context, write in Column G ("PM Notes / Instructions").', guide_text)
-    ws_help.write('A15', '7. Save and return this file. The engineering team will update the portal immediately.', guide_text)
+        ws_cat.write(r, 0, cat_name, cat_bold_fmt)
+        ws_cat.write(r, 1, cat_desc, cat_desc_fmt)
 
     workbook.close()
-    print(f'Successfully created {excel_path}!')
+    print(f'Successfully generated simplified Excel sheet at {excel_path}!')
 
 if __name__ == '__main__':
     create_pm_verification_sheet()
