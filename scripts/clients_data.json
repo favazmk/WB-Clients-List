@@ -35,17 +35,18 @@
   },
   {
     "id": "client-03",
-    "name": "Safeway Services",
+    "name": "Elictrix (Safeway)",
     "domain": "safeway.hashirnisam.com",
     "url": "https://safeway.hashirnisam.com",
     "type": "subdomain",
-    "category": "Corporate & Business Services",
+    "category": "Industrial, Trading & Engineering",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Services",
-      "Corporate",
-      "WordPress",
+      "Electrical Solutions",
+      "Equipment",
+      "Supplies",
+      "Trading",
       "Staging"
     ]
   },
@@ -188,13 +189,13 @@
     "domain": "newbinsbay.hashirnisam.com",
     "url": "https://newbinsbay.hashirnisam.com",
     "type": "subdomain",
-    "category": "E-Commerce & Retail",
+    "category": "Creative Agency & Media",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "E-Commerce",
-      "Retail",
-      "WordPress",
+      "Sign Printing",
+      "Branding",
+      "Advertising",
       "Staging"
     ]
   },
@@ -263,17 +264,17 @@
   },
   {
     "id": "client-17",
-    "name": "360 Media (New)",
+    "name": "360 Wellness (New)",
     "domain": "360new.hashirnisam.com",
     "url": "https://360new.hashirnisam.com",
     "type": "subdomain",
-    "category": "Creative Agency & Media",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Media",
-      "Marketing",
-      "Digital Agency",
+      "Hydrotherapy",
+      "Pools & Spas",
+      "Wellness",
       "Staging"
     ]
   },
@@ -327,17 +328,18 @@
   },
   {
     "id": "client-21",
-    "name": "360 Media Agency",
+    "name": "360 Wellness & Spa",
     "domain": "360.hashirnisam.com",
     "url": "https://360.hashirnisam.com",
     "type": "subdomain",
-    "category": "Creative Agency & Media",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Agency",
-      "Creative",
-      "Branding",
+      "Sauna & Spa",
+      "Hammam",
+      "Thermal Baths",
+      "Wellness",
       "Staging"
     ]
   },
@@ -775,13 +777,14 @@
     "domain": "binsbay.hashirnisam.com",
     "url": "https://binsbay.hashirnisam.com",
     "type": "subdomain",
-    "category": "E-Commerce & Retail",
+    "category": "Creative Agency & Media",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "E-Commerce",
-      "Staging",
-      "Retail"
+      "Sign Printing",
+      "Branding",
+      "Advertising",
+      "Staging"
     ]
   },
   {

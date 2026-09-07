@@ -1,7 +1,6 @@
 /**
  * Clients Database for Sales Team Directory
- * Verified & Updated from Client_Category_Verification_FULLY_VERIFIED_FIXED.xlsx
- * and Client_Category_Verification_16_WEBSITES_VERIFIED.xlsx
+ * Verified & Updated via Live Domain Audit
  */
 
 const CLIENTS_DATA = [
@@ -41,17 +40,18 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-03",
-    "name": "Safeway Services",
+    "name": "Elictrix (Safeway)",
     "domain": "safeway.hashirnisam.com",
     "url": "https://safeway.hashirnisam.com",
     "type": "subdomain",
-    "category": "Corporate & Business Services",
+    "category": "Industrial, Trading & Engineering",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Services",
-      "Corporate",
-      "WordPress",
+      "Electrical Solutions",
+      "Equipment",
+      "Supplies",
+      "Trading",
       "Staging"
     ]
   },
@@ -194,13 +194,13 @@ const CLIENTS_DATA = [
     "domain": "newbinsbay.hashirnisam.com",
     "url": "https://newbinsbay.hashirnisam.com",
     "type": "subdomain",
-    "category": "E-Commerce & Retail",
+    "category": "Creative Agency & Media",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "E-Commerce",
-      "Retail",
-      "WordPress",
+      "Sign Printing",
+      "Branding",
+      "Advertising",
       "Staging"
     ]
   },
@@ -269,17 +269,17 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-17",
-    "name": "360 Media (New)",
+    "name": "360 Wellness (New)",
     "domain": "360new.hashirnisam.com",
     "url": "https://360new.hashirnisam.com",
     "type": "subdomain",
-    "category": "Creative Agency & Media",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Media",
-      "Marketing",
-      "Digital Agency",
+      "Hydrotherapy",
+      "Pools & Spas",
+      "Wellness",
       "Staging"
     ]
   },
@@ -333,17 +333,18 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-21",
-    "name": "360 Media Agency",
+    "name": "360 Wellness & Spa",
     "domain": "360.hashirnisam.com",
     "url": "https://360.hashirnisam.com",
     "type": "subdomain",
-    "category": "Creative Agency & Media",
+    "category": "Health, Fitness & Wellness",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Agency",
-      "Creative",
-      "Branding",
+      "Sauna & Spa",
+      "Hammam",
+      "Thermal Baths",
+      "Wellness",
       "Staging"
     ]
   },
@@ -781,13 +782,14 @@ const CLIENTS_DATA = [
     "domain": "binsbay.hashirnisam.com",
     "url": "https://binsbay.hashirnisam.com",
     "type": "subdomain",
-    "category": "E-Commerce & Retail",
+    "category": "Creative Agency & Media",
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "E-Commerce",
-      "Staging",
-      "Retail"
+      "Sign Printing",
+      "Branding",
+      "Advertising",
+      "Staging"
     ]
   },
   {
