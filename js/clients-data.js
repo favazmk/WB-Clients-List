@@ -1,7 +1,7 @@
 /**
  * Clients Database for Sales Team Directory
  * Extracted and curated from Hostinger hPanel Client Roster
- * Verified & Updated via Project Manager Review
+ * Verified & Updated with Approved Client Additions
  */
 
 const CLIENTS_DATA = [
@@ -344,7 +344,7 @@ const CLIENTS_DATA = [
   },
   {
     "id": "client-22",
-    "name": "Rashi Cafe (New)",
+    "name": "Rashidali Cafeteria",
     "domain": "rashicafenew.hashirnisam.com",
     "url": "https://rashicafenew.hashirnisam.com",
     "type": "subdomain",
@@ -352,7 +352,8 @@ const CLIENTS_DATA = [
     "platform": "WordPress",
     "status": "Active",
     "tags": [
-      "Cafe",
+      "Cafeteria",
+      "Dining",
       "Beverages",
       "Food",
       "Staging"
@@ -1175,6 +1176,59 @@ const CLIENTS_DATA = [
       "Holistic Healthcare",
       "Panchakarma",
       "India",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-73",
+    "name": "Docmate",
+    "domain": "docmate.ae",
+    "url": "https://docmate.ae",
+    "type": "custom",
+    "category": "Health, Fitness & Wellness",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Doctor Booking",
+      "Healthcare",
+      "Medical",
+      "Appointments",
+      "UAE",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-74",
+    "name": "Netex Freight",
+    "domain": "netexfreight.com",
+    "url": "https://netexfreight.com",
+    "type": "custom",
+    "category": "Industrial, Trading & Engineering",
+    "platform": "WordPress",
+    "status": "Active",
+    "tags": [
+      "Freight Forwarding",
+      "Logistics",
+      "Cargo",
+      "Shipping",
+      "Custom Domain"
+    ]
+  },
+  {
+    "id": "client-75",
+    "name": "Mice Media",
+    "domain": "mice-media.vercel.app",
+    "url": "https://mice-media.vercel.app",
+    "type": "custom",
+    "category": "Events & Event Planning",
+    "platform": "HTML / Web App",
+    "status": "Active",
+    "tags": [
+      "Event Planning",
+      "Events",
+      "Conferences",
+      "MICE",
+      "Exhibitions",
       "Custom Domain"
     ]
   }

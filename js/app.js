@@ -13,6 +13,7 @@
     'Creative Agency & Media': 'fas fa-paint-brush',
     'E-Commerce & Retail': 'fas fa-shopping-cart',
     'Education & Community': 'fas fa-graduation-cap',
+    'Events & Event Planning': 'fas fa-calendar-alt',
     'Fashion, Apparel & Textiles': 'fas fa-tshirt',
     'Food & Beverage / Dining': 'fas fa-utensils',
     'Gifts & Floral': 'fas fa-spa',
