@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,12 +36,9 @@
         </div>
 
         <div class="header-actions">
-          <button type="button" class="btn btn-export" id="exportCsvBtn" title="Download Excel-compatible CSV of clients">
+          <button type="button" class="btn btn-primary btn-export" id="exportCsvBtn" title="Download Excel-compatible CSV of clients">
             <i class="fas fa-download"></i>
             <span>Export CSV</span>
-          </button>
-          <button type="button" class="btn theme-toggle-btn" id="themeToggleBtn" aria-label="Toggle dark and light theme" title="Toggle theme">
-            <i class="fas fa-sun"></i>
           </button>
         </div>
       </div>
@@ -189,22 +186,17 @@
       </div>
 
       <div class="view-mode-toggle">
-        <button type="button" class="view-btn active" id="gridViewBtn" title="Grid View" aria-label="Switch to grid view">
-          <i class="fas fa-th-large"></i>
-        </button>
-        <button type="button" class="view-btn" id="tableViewBtn" title="Table View" aria-label="Switch to table view">
+        <button type="button" class="view-btn active" id="tableViewBtn" title="Listing / Table View" aria-label="Switch to listing table view">
           <i class="fas fa-list"></i>
+        </button>
+        <button type="button" class="view-btn" id="gridViewBtn" title="Cards / Grid View" aria-label="Switch to cards grid view">
+          <i class="fas fa-th-large"></i>
         </button>
       </div>
     </section>
 
-    <!-- View 1: Card Grid View -->
-    <section class="clients-grid" id="gridContainer" aria-label="Clients grid">
-      <!-- Injected via JavaScript -->
-    </section>
-
-    <!-- View 2: Dense Table View -->
-    <div class="table-wrapper" id="tableContainer" style="display: none;">
+    <!-- View 1: Listing / Table View (Default First View) -->
+    <div class="table-wrapper" id="tableContainer">
       <table class="clients-table" aria-label="Clients directory table">
         <thead>
           <tr>
@@ -223,6 +215,11 @@
         </tbody>
       </table>
     </div>
+
+    <!-- View 2: Card Grid View (Alternative View) -->
+    <section class="clients-grid" id="gridContainer" style="display: none;" aria-label="Clients grid">
+      <!-- Injected via JavaScript -->
+    </section>
 
     <!-- Empty State -->
     <div class="empty-state" id="emptyState" style="display: none;">

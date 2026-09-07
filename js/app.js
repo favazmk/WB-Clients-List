@@ -1,5 +1,5 @@
 /**
- * Sales Team Client Directory - Intuitive & Simple Application Logic
+ * Sales Team Client Directory - White Theme & Default Listing Style
  */
 
 (function () {
@@ -25,7 +25,7 @@
     'Entertainment & Media': 'fas fa-film'
   };
 
-  // State Management
+  // State Management: Default to 'table' (listing style) on every landing
   const state = {
     clients: CLIENTS_DATA || [],
     filteredClients: [],
@@ -35,8 +35,7 @@
     selectedPlatform: 'all',
     selectedStatus: 'all',
     sortBy: 'name-asc',
-    viewMode: localStorage.getItem('wb_view_mode') || 'grid',
-    theme: localStorage.getItem('wb_theme') || 'dark'
+    viewMode: 'table' // Always show listing style first when user lands
   };
 
   // Cached DOM Elements
@@ -75,20 +74,18 @@
     gridViewBtn: document.getElementById('gridViewBtn'),
     tableViewBtn: document.getElementById('tableViewBtn'),
 
-    // Actions & Shell
+    // Actions & Feedback
     exportCsvBtn: document.getElementById('exportCsvBtn'),
-    themeToggleBtn: document.getElementById('themeToggleBtn'),
     toastContainer: document.getElementById('toastContainer')
   };
 
   // Boot Application
   function init() {
-    applyTheme(state.theme);
     renderCategoryChips();
     updateKPIStats();
     applyFilters();
     setupEventListeners();
-    applyViewMode(state.viewMode);
+    applyViewMode(state.viewMode); // Always defaults to 'table' listing style
   }
 
   // Update Overview Numbers
@@ -211,7 +208,7 @@
     });
   }
 
-  // Render Clients (Grid or Table)
+  // Render Clients (Table Listing or Card Grid)
   function renderClients() {
     const count = state.filteredClients.length;
 
@@ -224,18 +221,78 @@
 
     if (elements.emptyState) elements.emptyState.style.display = 'none';
 
-    if (state.viewMode === 'grid') {
-      if (elements.gridContainer) elements.gridContainer.style.display = 'grid';
-      if (elements.tableContainer) elements.tableContainer.style.display = 'none';
-      renderGridView();
-    } else {
+    if (state.viewMode === 'table') {
       if (elements.gridContainer) elements.gridContainer.style.display = 'none';
       if (elements.tableContainer) elements.tableContainer.style.display = 'block';
       renderTableView();
+    } else {
+      if (elements.gridContainer) elements.gridContainer.style.display = 'grid';
+      if (elements.tableContainer) elements.tableContainer.style.display = 'none';
+      renderGridView();
     }
   }
 
-  // Render Grid Cards
+  // Render Dense Table Listing View (Default)
+  function renderTableView() {
+    if (!elements.tableBody) return;
+
+    elements.tableBody.innerHTML = state.filteredClients.map((client, index) => {
+      const statusClass = getStatusClass(client.status);
+      const isCustom = client.type === 'custom';
+      const typeLabel = isCustom ? 'Custom' : 'Subdomain';
+      const typeClass = isCustom ? 'custom' : 'subdomain';
+      const platformIcon = client.platform === 'WordPress' ? 'fab fa-wordpress' : 'fas fa-code';
+      const catIcon = CATEGORY_ICONS[client.category] || 'fas fa-tag';
+
+      return `
+        <tr id="row-${client.id}">
+          <td style="color: var(--text-muted); font-size: 0.78rem; font-weight: 600;">${index + 1}</td>
+          <td>
+            <div class="table-client-title">${escapeHtml(client.name)}</div>
+          </td>
+          <td>
+            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="table-domain" title="Open website in new tab">
+              <span>${escapeHtml(client.domain)}</span>
+              <i class="fas fa-external-link-alt" style="font-size: 0.68rem; margin-left: 3px; opacity: 0.7;"></i>
+            </a>
+          </td>
+          <td>
+            <span class="card-category" style="font-size: 0.72rem; padding: 3px 8px;">
+              <i class="${catIcon}" style="font-size: 0.7rem; color: var(--brand-primary);"></i>
+              ${escapeHtml(client.category)}
+            </span>
+          </td>
+          <td>
+            <span class="card-type-tag ${typeClass}">${typeLabel}</span>
+          </td>
+          <td>
+            <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-secondary); font-weight: 500;">
+              <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
+            </span>
+          </td>
+          <td>
+            <span class="status-badge ${statusClass}">
+              <span class="status-dot"></span> ${escapeHtml(client.status)}
+            </span>
+          </td>
+          <td style="text-align: right;">
+            <div class="table-actions" style="justify-content: flex-end;">
+              <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary table-action-btn" title="Open Website">
+                Visit ↗
+              </a>
+              <button type="button" class="btn table-action-btn" data-copy="${escapeHtml(client.domain)}" title="Copy Domain">
+                <i class="far fa-copy"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      `;
+    }).join('');
+
+    attachCopyHandlers(elements.tableBody);
+  }
+
+  // Render Card Grid View (Alternative)
   function renderGridView() {
     if (!elements.gridContainer) return;
 
@@ -251,7 +308,7 @@
         <article class="client-card" id="${client.id}">
           <div class="card-header">
             <span class="card-category">
-              <i class="${catIcon}" style="font-size: 0.72rem;"></i>
+              <i class="${catIcon}" style="font-size: 0.72rem; color: var(--brand-primary);"></i>
               ${escapeHtml(client.category)}
             </span>
             <span class="status-badge ${statusClass}">
@@ -293,67 +350,7 @@
     attachCopyHandlers(elements.gridContainer);
   }
 
-  // Render Table View
-  function renderTableView() {
-    if (!elements.tableBody) return;
-
-    elements.tableBody.innerHTML = state.filteredClients.map((client, index) => {
-      const statusClass = getStatusClass(client.status);
-      const isCustom = client.type === 'custom';
-      const typeLabel = isCustom ? 'Custom' : 'Subdomain';
-      const typeClass = isCustom ? 'custom' : 'subdomain';
-      const platformIcon = client.platform === 'WordPress' ? 'fab fa-wordpress' : 'fas fa-code';
-      const catIcon = CATEGORY_ICONS[client.category] || 'fas fa-tag';
-
-      return `
-        <tr id="row-${client.id}">
-          <td style="color: var(--text-muted); font-size: 0.78rem;">${index + 1}</td>
-          <td>
-            <div class="table-client-title">${escapeHtml(client.name)}</div>
-          </td>
-          <td>
-            <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="table-domain" title="Open website">
-              ${escapeHtml(client.domain)}
-              <i class="fas fa-external-link-alt" style="font-size: 0.68rem; margin-left: 3px; opacity: 0.7;"></i>
-            </a>
-          </td>
-          <td>
-            <span class="card-category" style="font-size: 0.7rem; padding: 2px 8px;">
-              <i class="${catIcon}" style="font-size: 0.68rem;"></i>
-              ${escapeHtml(client.category)}
-            </span>
-          </td>
-          <td>
-            <span class="card-type-tag ${typeClass}">${typeLabel}</span>
-          </td>
-          <td>
-            <span style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.8rem; color: var(--text-secondary);">
-              <i class="${platformIcon}"></i> ${escapeHtml(client.platform)}
-            </span>
-          </td>
-          <td>
-            <span class="status-badge ${statusClass}">
-              <span class="status-dot"></span> ${escapeHtml(client.status)}
-            </span>
-          </td>
-          <td style="text-align: right;">
-            <div class="table-actions" style="justify-content: flex-end;">
-              <a href="${escapeHtml(client.url)}" target="_blank" rel="noopener noreferrer" class="btn btn-primary table-action-btn" title="Open Website">
-                Visit ↗
-              </a>
-              <button type="button" class="btn table-action-btn" data-copy="${escapeHtml(client.domain)}" title="Copy Domain">
-                <i class="far fa-copy"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-      `;
-    }).join('');
-
-    attachCopyHandlers(elements.tableBody);
-  }
-
-  // Copy Handlers with Visual Feedback
+  // Copy Handlers with Visual Toast Feedback
   function attachCopyHandlers(container) {
     container.querySelectorAll('[data-copy]').forEach(btn => {
       btn.addEventListener('click', (e) => {
@@ -391,7 +388,7 @@
     document.body.removeChild(input);
   }
 
-  // Toast Notification
+  // Toast Notification System
   function showToast(message, type = 'success') {
     if (!elements.toastContainer) return;
 
@@ -437,10 +434,9 @@
   // View Switching
   function applyViewMode(mode) {
     state.viewMode = mode;
-    localStorage.setItem('wb_view_mode', mode);
 
-    if (elements.gridViewBtn) elements.gridViewBtn.classList.toggle('active', mode === 'grid');
     if (elements.tableViewBtn) elements.tableViewBtn.classList.toggle('active', mode === 'table');
+    if (elements.gridViewBtn) elements.gridViewBtn.classList.toggle('active', mode === 'grid');
 
     renderClients();
   }
@@ -470,24 +466,6 @@
     link.click();
     document.body.removeChild(link);
     showToast(`Exported ${list.length} clients to CSV`);
-  }
-
-  // Theme Management
-  function applyTheme(theme) {
-    state.theme = theme;
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('wb_theme', theme);
-
-    if (elements.themeToggleBtn) {
-      const icon = elements.themeToggleBtn.querySelector('i');
-      if (icon) {
-        icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-      }
-    }
-  }
-
-  function toggleTheme() {
-    applyTheme(state.theme === 'light' ? 'dark' : 'light');
   }
 
   // Setup Event Listeners
@@ -561,12 +539,12 @@
       });
     }
 
-    // View Toggles
-    if (elements.gridViewBtn) {
-      elements.gridViewBtn.addEventListener('click', () => applyViewMode('grid'));
-    }
+    // View Toggles: Table (Listing) vs Grid (Cards)
     if (elements.tableViewBtn) {
       elements.tableViewBtn.addEventListener('click', () => applyViewMode('table'));
+    }
+    if (elements.gridViewBtn) {
+      elements.gridViewBtn.addEventListener('click', () => applyViewMode('grid'));
     }
 
     // Reset Buttons
@@ -580,11 +558,6 @@
     // Export CSV
     if (elements.exportCsvBtn) {
       elements.exportCsvBtn.addEventListener('click', exportToCSV);
-    }
-
-    // Theme Switch
-    if (elements.themeToggleBtn) {
-      elements.themeToggleBtn.addEventListener('click', toggleTheme);
     }
   }
 
