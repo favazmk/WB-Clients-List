@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Sales Team Client Directory & Live Website Portal. Search, filter, and access all agency client websites by business category.">
-  <title>Sales Hub &bull; Agency Client Websites Directory</title>
+  <title>Sales Hub &bull; WebBranding Agency Clients Directory</title>
   
   <!-- Modern Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +29,7 @@
           </div>
           <div>
             <h1 class="brand-title">
-              Client Directory <span class="brand-badge">Sales Hub</span>
+              WebBranding <span class="brand-badge">Sales Hub</span>
             </h1>
             <p class="brand-subtitle">Agency website clients, business categories &amp; live domains</p>
           </div>
@@ -44,6 +44,14 @@
       </div>
     </div>
   </header>
+
+  <!-- Top Navigation Tabs -->
+  <nav class="top-nav container">
+    <div class="nav-tabs">
+      <a href="index.html" class="nav-tab active"><i class="fas fa-globe"></i> Website Clients</a>
+      <a href="digital-marketing.html" class="nav-tab"><i class="fas fa-bullhorn"></i> Digital Marketing Clients</a>
+    </div>
+  </nav>
 
   <main class="container">
     <!-- Compact KPI Ribbon -->
@@ -101,6 +109,9 @@
     <section class="category-section" aria-label="Filter by Industry Category">
       <div class="category-bar-header">
         <span class="category-bar-title">Filter by Business Category:</span>
+        <button type="button" class="mobile-filter-toggle" id="mobileFilterToggle" aria-label="Toggle categories">
+          <i class="fas fa-filter"></i> Categories
+        </button>
       </div>
       <div class="category-chips-list" id="categoryChipsContainer">
         <!-- Dynamic category chips with icons injected via JS -->
@@ -171,7 +182,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; 2026 Agency Client Directory &bull; Sales &amp; Business Development Portal</p>
+      <p>&copy; 2026 WebBranding Digital Marketing Agency &bull; Sales Hub</p>
       <p>Data synced from Hostinger Infrastructure</p>
     </div>
   </footer>
