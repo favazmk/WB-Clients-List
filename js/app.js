@@ -48,6 +48,7 @@
     clearSearchBtn: document.getElementById('clearSearchBtn'),
     sortBySelect: document.getElementById('sortBySelect'),
     categoryChipsContainer: document.getElementById('categoryChipsContainer'),
+    mobileFilterToggle: document.getElementById('mobileFilterToggle'),
 
     // Results & Views
     resultsCount: document.getElementById('resultsCount'),
@@ -116,6 +117,12 @@
         state.selectedCategory = cat;
         elements.categoryChipsContainer.querySelectorAll('.chip-btn').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
+        
+        // Collapse on mobile after selection
+        if (elements.categoryChipsContainer.classList.contains('expanded')) {
+          elements.categoryChipsContainer.classList.remove('expanded');
+        }
+        
         applyFilters();
       });
     });
@@ -389,6 +396,13 @@
 
   // Setup Event Listeners
   function setupEventListeners() {
+    // Mobile filter toggle
+    if (elements.mobileFilterToggle && elements.categoryChipsContainer) {
+      elements.mobileFilterToggle.addEventListener('click', () => {
+        elements.categoryChipsContainer.classList.toggle('expanded');
+      });
+    }
+
     // Search input
     if (elements.searchInput) {
       elements.searchInput.addEventListener('input', (e) => {

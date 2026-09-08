@@ -14,8 +14,8 @@
   
   --border-color: #e2e8f0;
   --border-subtle: #f1f5f9;
-  --border-focus: #4f46e5;
-  --border-glow: rgba(79, 70, 229, 0.2);
+  --border-focus: #9333ea;
+  --border-glow: rgba(147, 51, 234, 0.2);
 
   --text-primary: #0f172a;
   --text-secondary: #475569;
@@ -23,11 +23,11 @@
   --text-inverse: #ffffff;
 
   /* Brand Accents */
-  --brand-primary: #4f46e5;
-  --brand-primary-light: #6366f1;
-  --brand-primary-hover: #4338ca;
-  --brand-gradient: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #8b5cf6 100%);
-  --brand-glow: 0 4px 14px rgba(79, 70, 229, 0.25);
+  --brand-primary: #7e22ce;        /* Purple 700 */
+  --brand-primary-light: #9333ea;  /* Purple 600 */
+  --brand-primary-hover: #6b21a8;  /* Purple 800 */
+  --brand-gradient: linear-gradient(135deg, #7e22ce 0%, #9333ea 50%, #a855f7 100%);
+  --brand-glow: 0 4px 14px rgba(126, 34, 206, 0.25);
 
   /* Status Colors for Light Theme */
   --status-active-bg: #ecfdf5;
@@ -148,9 +148,9 @@ body {
   font-weight: 700;
   padding: 2px 8px;
   border-radius: var(--radius-full);
-  background: #ede9fe;
-  color: #6366f1;
-  border: 1px solid #ddd6fe;
+  background: #f3e8ff;
+  color: var(--brand-primary-light);
+  border: 1px solid #e9d5ff;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -164,6 +164,50 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* Top Navigation Tabs */
+.top-nav {
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 15px;
+  border-bottom: 2px solid var(--border-subtle);
+  padding-bottom: 0px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+}
+
+.nav-tabs::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+.nav-tab {
+  white-space: nowrap;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-tab:hover {
+  color: var(--brand-primary);
+}
+
+.nav-tab.active {
+  color: var(--brand-primary);
+  border-bottom-color: var(--brand-primary);
 }
 
 .btn {
@@ -194,13 +238,13 @@ body {
   background: var(--brand-primary);
   border-color: var(--brand-primary);
   color: #ffffff;
-  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 2px 6px rgba(147, 51, 234, 0.25);
 }
 
 .btn-primary:hover {
   background: var(--brand-primary-hover);
   border-color: var(--brand-primary-hover);
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.35);
+  box-shadow: 0 4px 10px rgba(147, 51, 234, 0.35);
 }
 
 /* Compact KPI Ribbon */
@@ -306,7 +350,7 @@ body {
 
 .main-search-input:focus {
   border-color: var(--brand-primary);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.15);
   background: #ffffff;
 }
 
@@ -398,6 +442,20 @@ body {
   color: var(--text-muted);
 }
 
+.mobile-filter-toggle {
+  display: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+  align-items: center;
+  gap: 6px;
+}
+
 .category-chips-list {
   display: flex;
   flex-wrap: wrap;
@@ -431,7 +489,7 @@ body {
   background: var(--brand-primary);
   color: #ffffff;
   border-color: var(--brand-primary);
-  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+  box-shadow: 0 2px 6px rgba(147, 51, 234, 0.25);
 }
 
 .chip-icon {
@@ -815,12 +873,12 @@ body {
   text-decoration: none;
   transition: all var(--transition-fast);
   margin-top: auto;
-  box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 2px 5px rgba(147, 51, 234, 0.2);
 }
 
 .open-site-btn:hover {
   background: var(--brand-primary-hover);
-  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 4px 8px rgba(147, 51, 234, 0.3);
 }
 
 /* Empty State */
@@ -918,6 +976,21 @@ body {
 }
 
 @media (max-width: 768px) {
+  .category-bar-title {
+    display: none;
+  }
+  .mobile-filter-toggle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .category-chips-list {
+    display: none;
+    margin-top: 10px;
+  }
+  .category-chips-list.expanded {
+    display: flex;
+  }
   .kpi-strip {
     grid-template-columns: repeat(2, 1fr);
   }
