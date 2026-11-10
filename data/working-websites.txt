@@ -1,111 +1,68 @@
-WORKING CLIENT WEBSITES - CATEGORISED
-=====================================
-Live check date : 10 Nov 2026
-Source list     : js/clients-data.js (91 client websites)
-Result          : 63 working websites
+Corporate site
+1Point360 - https://1point360.com
+Niran Real Estate - https://niranrealestate.ae
+Netex Freight - https://netexfreight.com
+Elictrix (Safeway) [staging] - https://safeway.hashirnisam.com
+Najem Al Jusrain Cafe - https://najemaljusraincafe.com
+Silvan Global - https://silvanglobal.com
+360 Wellness & Spa [staging] - https://360.hashirnisam.com
+Bellaa Beauty Salon - https://bellaabeautysalon.com
+Dezora Interiors - https://dezorainteriors.com
+Halava Sweets [staging] - https://halavanew.hashirnisam.com
+Halava Holidays - https://halavaholidays.com
+Falcon Services [staging] - https://falcon.hashirnisam.com
+Jabal Almadina Real Estate - https://jamre.ae
+Zeredia Luxury Stays - https://zeredialuxurystays.com
+Sandesh Sweets [staging] - https://sandeshsweets.hashirnisam.com
+ARG Service UAE - https://argserviceuae.com
+NearMe 888 - https://nearme888.com
+Suffathu Tharbiya - https://suffathutharbiya.com
+Kompass Architects - https://kompassarchitects.com
+Uteck Systems - https://utecksystems.com
+Ayurmanthra Vatakara - https://ayurmanthravatakara.in
+Docmate - https://docmate.ae
+Mice Media - https://mice-media.vercel.app
+Ashal United - https://ashalunited.com
+Careintco International - https://careintco.com
+Ayursiha Hospital - https://ayursiha.com
+Ultimate Tek Solutions - https://ultimatetek.in
+Ajman Global Pvt Ltd - https://ajmanglobal.com
+Al Jamiathul Kauzariyya - https://kauzariyya.com
+Hashir Nisam - https://hashirnisam.com
 
-How sites were sorted (each site is in one list only):
-  - E-commerce site      : live store with WooCommerce / Shopify cart, product and checkout features
-  - Scroll Animation site: built with scroll-animation tech (GSAP + ScrollTrigger, Lenis smooth scroll, custom scroll/parallax)
-  - Corporate site       : company / service / info website (no online store, no heavy scroll animation)
-"BEST WORKS" picks are based on what the live check found: how much content there is, how many images, the tech used and how custom the build is.
+Scroll Animation site
+Sam Fitness Official - https://samfitnessofficial.ae
+Pandur World Cookies - https://pandurworld.com
+ES Global [staging] - https://esglobal.hashirnisam.com
+Shaista Fathima - https://shaistafathima.com
+Bandhan Construction - https://bcgmllc.com
+Rashid Ali (Dev 2) [staging] - https://rashidali2.hashirnisam.com
+Rashidali Cafeteria [staging] - https://rashicafenew.hashirnisam.com
+Rashad Business Setup - https://rashadbusinesssetup.com
+Al Hatimi Valtech - https://alhatimivaltech.com
+Amigos Logistics - https://amigoslogistics.com
 
-
-=====================================================================
-1) CORPORATE SITE  (30 sites)
-=====================================================================
-
-*** BEST WORKS ***
-  1. 1Point360                    - https://1point360.com            (rich content, parallax and scroll effects)
-  2. Niran Real Estate            - https://niranrealestate.ae       (large property showcase, 90+ images, GSAP)
-  3. Netex Freight                - https://netexfreight.com         (custom-coded build, not WordPress)
-
-All corporate sites:
-  1Point360                       - https://1point360.com
-  Niran Real Estate               - https://niranrealestate.ae
-  Netex Freight                   - https://netexfreight.com
-  Elictrix (Safeway) [staging]    - https://safeway.hashirnisam.com
-  Najem Al Jusrain Cafe           - https://najemaljusraincafe.com
-  Silvan Global                   - https://silvanglobal.com
-  360 Wellness & Spa [staging]    - https://360.hashirnisam.com
-  Bellaa Beauty Salon             - https://bellaabeautysalon.com
-  Dezora Interiors                - https://dezorainteriors.com
-  Halava Sweets [staging]         - https://halavanew.hashirnisam.com
-  Halava Holidays                 - https://halavaholidays.com
-  Falcon Services [staging]       - https://falcon.hashirnisam.com
-  Jabal Almadina Real Estate      - https://jamre.ae
-  Zeredia Luxury Stays            - https://zeredialuxurystays.com
-  Sandesh Sweets [staging]        - https://sandeshsweets.hashirnisam.com
-  ARG Service UAE                 - https://argserviceuae.com
-  NearMe 888                      - https://nearme888.com
-  Suffathu Tharbiya               - https://suffathutharbiya.com
-  Kompass Architects              - https://kompassarchitects.com
-  Uteck Systems                   - https://utecksystems.com
-  Ayurmanthra Vatakara            - https://ayurmanthravatakara.in
-  Docmate                         - https://docmate.ae
-  Mice Media                      - https://mice-media.vercel.app
-  Ashal United                    - https://ashalunited.com
-  Careintco International         - https://careintco.com
-  Ayursiha Hospital               - https://ayursiha.com
-  Ultimate Tek Solutions          - https://ultimatetek.in
-  Ajman Global Pvt Ltd            - https://ajmanglobal.com
-  Al Jamiathul Kauzariyya         - https://kauzariyya.com
-  Hashir Nisam                    - https://hashirnisam.com
-
-
-=====================================================================
-2) SCROLL ANIMATION SITE  (10 sites)
-=====================================================================
-
-*** BEST WORKS ***
-  1. Sam Fitness Official         - https://samfitnessofficial.ae    (custom build: GSAP + ScrollTrigger + Lenis)
-  2. Pandur World Cookies         - https://pandurworld.com          (Next.js + Lenis smooth scroll + motion)
-  3. ES Global [staging]          - https://esglobal.hashirnisam.com (GSAP + ScrollTrigger + Lenis)
-
-All scroll animation sites:
-  Sam Fitness Official            - https://samfitnessofficial.ae
-  Pandur World Cookies            - https://pandurworld.com
-  ES Global [staging]             - https://esglobal.hashirnisam.com
-  Shaista Fathima                 - https://shaistafathima.com
-  Bandhan Construction            - https://bcgmllc.com
-  Rashid Ali (Dev 2) [staging]    - https://rashidali2.hashirnisam.com
-  Rashidali Cafeteria [staging]   - https://rashicafenew.hashirnisam.com
-  Rashad Business Setup           - https://rashadbusinesssetup.com
-  Al Hatimi Valtech               - https://alhatimivaltech.com
-  Amigos Logistics                - https://amigoslogistics.com
-
-
-=====================================================================
-3) E-COMMERCE SITE  (23 sites)
-=====================================================================
-
-*** BEST WORKS ***
-  1. Vogue Venue                  - https://voguevenue.ae            (230+ product images, GSAP animations)
-  2. Cedar Cosmetics              - https://cedarcosmetics.com       (large catalogue, 230+ images)
-  3. Al Wifaq Online              - https://alwifaqonline.com        (Shopify store, 110+ products)
-
-All e-commerce sites:
-  Vogue Venue                     - https://voguevenue.ae
-  Cedar Cosmetics                 - https://cedarcosmetics.com
-  Al Wifaq Online                 - https://alwifaqonline.com
-  Dvice UK                        - https://dvice.uk
-  The Specs Store                 - https://thespecsstore.ae
-  Shop Brod                       - https://shopbrod.com
-  La Vintage Home                 - https://lavintagehome.com
-  Rafas Foods                     - https://rafasfoods.com
-  Ray Sports UAE                  - https://raysportsuae.com
-  Meltoz Confectionery            - https://meltoz.ae
-  Britly Living                   - https://britlyliving.co.uk
-  La Fille Elegante               - https://lafille-elegante.com
-  Sunrise Arabia                  - https://sunrisearabia.com
-  RAK Trading Mall                - https://raktradingmall.com
-  Fine Feichi Textile             - https://finefeichitextile.com
-  The Finobel Advisory            - https://thefinobel.com
-  Binsbay                         - https://binsbay.com
-  Riju's Natural Skincare [stg]   - https://rijuss.hashirnisam.com
-  Riju's (V1) [staging]           - https://rijus.hashirnisam.com
-  Flower Hub [staging]            - https://flowerhub.hashirnisam.com
-  Sana Tissue [staging]           - https://sanatissue.hashirnisam.com
-  Wearox Apparel [staging]        - https://wearox.hashirnisam.com
-  Fabrics Boutique [staging]      - https://fabrics.hashirnisam.com
-
+E commerce site
+Vogue Venue - https://voguevenue.ae
+Cedar Cosmetics - https://cedarcosmetics.com
+Al Wifaq Online - https://alwifaqonline.com
+Dvice UK - https://dvice.uk
+The Specs Store - https://thespecsstore.ae
+Shop Brod - https://shopbrod.com
+La Vintage Home - https://lavintagehome.com
+Rafas Foods - https://rafasfoods.com
+Ray Sports UAE - https://raysportsuae.com
+Meltoz Confectionery - https://meltoz.ae
+Britly Living - https://britlyliving.co.uk
+La Fille Elegante - https://lafille-elegante.com
+Sunrise Arabia - https://sunrisearabia.com
+RAK Trading Mall - https://raktradingmall.com
+Fine Feichi Textile - https://finefeichitextile.com
+The Finobel Advisory - https://thefinobel.com
+Binsbay - https://binsbay.com
+Riju's Natural Skincare [stg] - https://rijuss.hashirnisam.com
+Riju's (V1) [staging] - https://rijus.hashirnisam.com
+Flower Hub [staging] - https://flowerhub.hashirnisam.com
+Sana Tissue [staging] - https://sanatissue.hashirnisam.com
+Wearox Apparel [staging] - https://wearox.hashirnisam.com
+Fabrics Boutique [staging] - https://fabrics.hashirnisam.com
