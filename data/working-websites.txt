@@ -36,7 +36,6 @@ Pandur World Cookies - https://pandurworld.com
 ES Global [staging] - https://esglobal.hashirnisam.com
 Shaista Fathima - https://shaistafathima.com
 Bandhan Construction - https://bcgmllc.com
-Rashid Ali (Dev 2) [staging] - https://rashidali2.hashirnisam.com
 Rashidali Cafeteria [staging] - https://rashicafenew.hashirnisam.com
 Rashad Business Setup - https://rashadbusinesssetup.com
 Al Hatimi Valtech - https://alhatimivaltech.com
@@ -60,9 +59,7 @@ RAK Trading Mall - https://raktradingmall.com
 Fine Feichi Textile - https://finefeichitextile.com
 The Finobel Advisory - https://thefinobel.com
 Binsbay - https://binsbay.com
-Riju's Natural Skincare [stg] - https://rijuss.hashirnisam.com
-Riju's (V1) [staging] - https://rijus.hashirnisam.com
+Riju's Natural Skincare [staging] - https://rijuss.hashirnisam.com
 Flower Hub [staging] - https://flowerhub.hashirnisam.com
 Sana Tissue [staging] - https://sanatissue.hashirnisam.com
 Wearox Apparel [staging] - https://wearox.hashirnisam.com
-Fabrics Boutique [staging] - https://fabrics.hashirnisam.com
