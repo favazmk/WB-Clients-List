@@ -2,7 +2,7 @@ WORKING CLIENT WEBSITES - CATEGORISED
 =====================================
 Live check date : 10 Nov 2026
 Source list     : js/clients-data.js (91 client websites)
-Result          : 63 working  |  28 not working (listed at the bottom)
+Result          : 63 working websites
 
 How sites were sorted (each site is in one list only):
   - E-commerce site      : live store with WooCommerce / Shopify cart, product and checkout features
@@ -109,20 +109,3 @@ All e-commerce sites:
   Wearox Apparel [staging]        - https://wearox.hashirnisam.com
   Fabrics Boutique [staging]      - https://fabrics.hashirnisam.com
 
-
-=====================================================================
-NOT WORKING  (28 sites - left out of the lists above)
-=====================================================================
-Domain not found / expired (DNS does not resolve):
-  Zivo Tech, Aswaq Express, My Athoor Perfumes, Miya Your Way, Reala Karak Cafe,
-  Squared Studio, Al Zahra Typing, Sadis Organization, Almas Business Setup,
-  Al Wasl Al Masi, Jewel Saga Expo, A-One Snacks, Leads Mens Hostels,
-  Corvair Trading, Mamaty Sarees, Al Zehra Tours & Travels
-Domain expired / for sale:
-  Nadeem Seafood (domain expired page), Scott Kids (redirects to HugeDomains)
-SSL / 403 error:
-  Rashid Ali, Brod (Staging), Binsbay (New Staging), Wellness Studio, Binsbay Staging
-Server error (HTTP 500):
-  360 Wellness (New), Bettermark Groceries, Tormac Marine
-"Coming Soon" page only:
-  Blue Star HR, Flower Hub UAE
