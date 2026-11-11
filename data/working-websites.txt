@@ -1,7 +1,6 @@
 Corporate site
 1Point360 - https://1point360.com
 Niran Real Estate - https://niranrealestate.ae
-Netex Freight - https://netexfreight.com
 Elictrix (Safeway) [staging] - https://safeway.hashirnisam.com
 Najem Al Jusrain Cafe - https://najemaljusraincafe.com
 Silvan Global - https://silvanglobal.com
@@ -20,8 +19,6 @@ Suffathu Tharbiya - https://suffathutharbiya.com
 Kompass Architects - https://kompassarchitects.com
 Uteck Systems - https://utecksystems.com
 Ayurmanthra Vatakara - https://ayurmanthravatakara.in
-Docmate - https://docmate.ae
-Mice Media - https://mice-media.vercel.app
 Ashal United - https://ashalunited.com
 Careintco International - https://careintco.com
 Ayursiha Hospital - https://ayursiha.com
@@ -40,6 +37,26 @@ Rashidali Cafeteria [staging] - https://rashicafenew.hashirnisam.com
 Rashad Business Setup - https://rashadbusinesssetup.com
 Al Hatimi Valtech - https://alhatimivaltech.com
 Amigos Logistics - https://amigoslogistics.com
+Netex Freight - https://netexfreight.com
+Docmate - https://docmate.ae
+Mice Media - https://mice-media.vercel.app
+Harriet Build Design - https://harrietbuildesign.com
+The Web Branding - https://thewebbranding.com
+Web Branding Digital Marketing - https://web-branding-three.vercel.app/digital-marketing.html
+Gala IT Care Services - https://services.galaitcare.com
+Today's Fit Gym - https://todaysfitgym.com
+Menaarc - https://menaarc-ten.vercel.app
+Safeway Switchgears - https://safeway-switchgears.vercel.app
+Zevaa - https://zevaa.ae
+Imperial Star Events - https://imperialstarevents.com
+Fly Zone Freights
+Speed Point Business Formation
+Rodos Kitchen
+Haya Digital
+Sharjah Nursery
+Royal Marbles
+Greenway Cargo
+Lyon Movers
 
 E commerce site
 Vogue Venue - https://voguevenue.ae
